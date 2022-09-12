@@ -135,20 +135,8 @@ Route::prefix('/')->middleware('auth:web')->group(function(){
 
     Route::resource('book_hotels', BookHotelController::class);
     Route::post('book_hotels/{id}' , [BookHotelController::class , 'update'])->name('book_hotels');
-<<<<<<< HEAD
-=======
-    
-    
-    Route::get('/create/book-hotel/{id}', [BookHotelController::class, 'createBook'])->name('create-book-hotel');
->>>>>>> bf7a51155f73831cb36f06a92a81e6ea7a6f8f0c
 
-
-
-
-<<<<<<< HEAD
-=======
     // Route::get('/index/book-hotel/{id}', [BookHotelController::class, 'indexBook'])->name('index-book-hotel');
->>>>>>> bf7a51155f73831cb36f06a92a81e6ea7a6f8f0c
 });
 
 Route::prefix('/')->group(function(){
