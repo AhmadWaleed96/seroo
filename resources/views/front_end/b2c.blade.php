@@ -48,13 +48,14 @@
                 </div>
             </div>
             @if (Auth::guard('web')->id())
-                    <div class="dropdown m-3">
+
+                    <div class="trans-parent1 dropdown">
                         {{-- <a class="dropdown-toggle text-decoration-none text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('cms/assets/img/en-US.png')}}" alt="" style="width: 25px; height: 25px; border-radius: 50%;"> En - English</a> --}}
-                        <a class="dropdown-toggle text-decoration-none text-white" href="#" role="button"
+                        <a class="translation1 dropdown-toggle text-decoration-none text-white" href="#" role="button"
                             id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                             @if (auth('web')->user()->image !='')
 
-                            <img src="{{ asset('storage/images/register/'.auth('web')->user()->image) }}" style="width: 25px; height: 25px;">
+                            <img src="{{ asset('storage/images/register/'.auth('web')->user()->image) }}" style="width: 25px; height: 25px; border-radius: 50%">
 
                             @else
 
@@ -64,17 +65,15 @@
                              {{ auth('web')->user()->full_name }}
                         </a>
 
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <ul class="trans-selection1 dropdown-menu bg-transparent border-0" aria-labelledby="dropdownMenuLink">
                             <li class="nav-item ">
-                                <a href="{{ route('logout') }}" class="nav-link text-black">
-                                    <i class="fas fa-sign-out-alt ml-2"></i>
-                                         {{ __("Log Out") }}
+                                <a href="{{ route('logout') }}" class="trans-select1 nav-link text-white p-1">
+                                    <i class="fas fa-sign-out-alt ml-2"></i>  {{ __("Log Out") }}
                                 </a>
                             </li>
                             <li class="nav-item ">
-                                <a href="{{ route('profile_edit_user') }}" class="nav-link text-black">
-                                    <i class="fas fa-user ml-2"></i>
-                                        {{ __("Profile") }}
+                                <a href="{{ route('profile_edit_user') }}" class="trans-select1 nav-link text-white p-1">
+                                    <i class="fas fa-user ml-2"></i>  {{ __("Profile") }}
                                 </a>
                             </li>
                         </ul>

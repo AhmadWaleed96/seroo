@@ -45,6 +45,40 @@
                 </div>
             </div>
         </div>
+        @if (Auth::guard('web')->id())
+                  <div class="dropdown m-3">
+                      {{-- <a class="dropdown-toggle text-decoration-none text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('cms/assets/img/en-US.png')}}" alt="" style="width: 25px; height: 25px; border-radius: 50%;"> En - English</a> --}}
+                      <a class="dropdown-toggle text-decoration-none text-white" href="#" role="button"
+                          id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                          @if (auth('web')->user()->image != '')
+
+                          <img src="{{ asset('storage/images/register/'.auth('web')->user()->image) }}" alt="Logo" style="width: 25px; height: 25px;">
+
+                          @else
+
+                          <img src="{{ asset('storage/images/userSolid.png') }}" alt="Logo" style="width: 25px; height: 25px; border-radius: 50%">
+
+                          @endif
+                           {{ auth('web')->user()->full_name }}
+                      </a>
+
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                          <li class="nav-item ">
+                              <a href="{{ route('logout') }}" class="nav-link text-black">
+                                  <i class="fas fa-sign-out-alt ml-2"></i>
+                                       {{ __("Log Out") }}
+                              </a>
+                          </li>
+                          <li class="nav-item ">
+                              <a href="{{ route('profile_edit_user') }}" class="nav-link text-black">
+                                  <i class="fas fa-user ml-2"></i>
+                                      {{ __("Profile") }}
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+
+                  @endif
     </div>
 
     <div class="pages-pointers">
@@ -57,7 +91,7 @@
     <div class="part1">
 
         <div class="background">
-            <img class="ground-img" src="{{ asset('public/cms/assets/img/background.jpg') }}">
+            <img class="ground-img" src="{{ asset('public/cms/assets/img/jaddah.png') }}">
             <img class="ground-cover" src="{{ asset('public/cms/assets/img/background cover.png') }}">
         </div>
 

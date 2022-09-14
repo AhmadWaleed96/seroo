@@ -193,6 +193,124 @@ a {
     border: 2px solid rgb(157 157 157 / 65%);
 }
 
+.trans-parent {
+    position: relative;
+}
+
+.page-nav .trans-parent {
+    position: relative;
+}
+
+.page-nav .translation,
+.trans-selection .trans-select {
+    position: relative;
+    display: flex;
+    width: 90px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(153 153 153 / 20%);
+    border: 4px solid rgb(242 242 242 / 20%);
+    opacity: .8;
+    transition: .4s;
+    cursor: pointer;
+    box-shadow: -1px 1px 10px rgb(79 84 89 / 2%);
+    margin-right: 0;
+    flex-direction: row-reverse;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.page-nav .trans-parent.active .translation {
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.trans-selection .trans-select {
+    position: relative;
+    display: flex;
+    width: 90px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(153 153 153 / 20%);
+    border: 4px solid rgb(242 242 242 / 20%);
+    opacity: .8;
+    transition: .4s;
+    cursor: pointer;
+    box-shadow: -1px 1px 10px rgb(79 84 89 / 2%);
+    margin-right: 0;
+    flex-direction: row-reverse;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.page-nav .trans-parent.active .translation {
+    border-radius: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.trans-selection .trans-select {
+    position: relative;
+    display: flex;
+    width: 90px;
+    height: 40px;
+    border-radius: 0;
+    background-color: rgb(153 153 153 / 20%);
+    border: 2px solid rgb(242 242 242 / 20%);
+    opacity: 1;
+    transition: .25s;
+}
+
+.trans-selection {
+    position: absolute;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    height: fit-content;
+    display: none;
+}
+
+.page-nav .trans-parent.active .trans-selection {
+    display: block;
+}
+
+.page-nav .translation img,
+.trans-selection .trans-select img {
+    position: relative;
+    height: 70%;
+    margin-left: 7px;
+}
+
+.trans-selection .trans-select img {
+    position: relative;
+    height: 60%;
+    margin-left: 7px;
+}
+
+.page-nav .translation span,
+.trans-selection .trans-select span {
+    position: relative;
+    color: #e5f1ed;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 500;
+}
+
+.page-nav .translation:hover {
+    opacity: 1;
+    box-shadow: -1px 2px 10px rgb(79 84 89 / 15%);
+}
+
+.trans-selection .trans-select:hover {
+    opacity: 1;
+    background-color: rgb(67 67 67 / 47%);
+    border: 2px solid rgb(157 157 157 / 65%);
+}
+
 .pages-pointers {
     position: fixed;
     display: flex;
@@ -251,7 +369,7 @@ a {
     position: fixed;
     left: 50%;
     transform: translateX(-45%);
-    top: -25%;
+    top: -50%;
     width: 125%;
     min-height: 125vh;
     object-fit: cover;
