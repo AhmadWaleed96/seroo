@@ -71,44 +71,6 @@ html {
     font-weight: 500;
 }
 
-.page-nav .logout {
-    position: relative;
-    display: flex;
-    width: 90px;
-    height: 40px;
-    border-radius: 50px;
-    background-color: rgb(153 153 153 / 20%);
-    border: 4px solid rgb(242 242 242 / 20%);
-    opacity: .8;
-    transition: .4s;
-    cursor: pointer;
-    box-shadow: -1px 1px 10px rgb(79 84 89 / 2%);
-    margin-right: 15px;
-    flex-direction: row-reverse;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-}
-
-.page-nav .logout img {
-    position: relative;
-    height: 70%;
-    margin-left: 7px;
-}
-
-.page-nav .logout span {
-    position: relative;
-    color: #e5f1ed;
-    font-family: 'Tajawal', sans-serif;
-    font-weight: 500;
-}
-
-.page-nav .logout:hover {
-    opacity: 1;
-    box-shadow: -1px 2px 10px rgb(79 84 89 / 15%);
-}
-
 .pages-pointers {
     position: fixed;
     display: flex;
@@ -181,42 +143,42 @@ html {
 }
 
 .page-container {
-    position: relative;
-    display: flex;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 75%;
-    margin-top: 270px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
+    position: relative !important;
+    display: flex !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 75% !important;
+    margin-top: 270px !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-content: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
 }
 
 .page-container img {
-    position: relative;
-    height: 120px;
+    position: relative !important;
+    height: 120px !important;
 }
 
 .page-container .buttons {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 200px;
-    row-gap: 45px;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 85px;
+    position: relative !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    column-gap: 200px !important;
+    row-gap: 45px !important;
+    align-content: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-top: 85px !important;
 }
 
 .page-container .buttons .buton {
-    position: relative;
-    display: flex;
-    width: 360px;
-    height: 72px;
+    position: relative !important;
+    display: flex !important;
+    width: 360px !important;
+    height: 72px !important;
     background-color: #82b9b9;
     border-radius: 50px;
     color: #56575b;
@@ -234,25 +196,25 @@ html {
 }
 
 .page-container .buttons .buton.first-btn .shape {
-    position: absolute;
-    width: 75%;
-    height: 18px;
+    position: absolute !important;
+    width: 75% !important;
+    height: 18px !important;
     background-color: rgb(211 203 197 / 45%);
     border-radius: 50%;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 .page-container .buttons .buton.second-btn .shape {
-    position: absolute;
-    width: 75%;
-    height: 18px;
+    position: absolute !important;
+    width: 75% !important;
+    height: 18px !important;
     background-color: rgb(88 89 93 / 20%);
     border-radius: 50%;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
 }
 
 .page-container .buttons .buton.first-btn {

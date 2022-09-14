@@ -8,19 +8,19 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('cms/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/cms/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- icheck bootstrap -->
-  <link rel="stylesheet" href="{{ asset('cms/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/cms/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('cms/dist/css/adminlte.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('cms/plugins/toastr/toastr.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/cms/dist/css/adminlte.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('public/cms/plugins/toastr/toastr.min.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="cms/index2.html" class="h1"><b>SERO</b></a>
+      <a href="public/cms/index2.html" class="h1"><b>SERO</b></a>
     </div>
     <div class="card-body">
       <p class="login-box-msg">Register a new membership</p>
@@ -69,36 +69,6 @@
                 </div>
               </div>
             </div>
-            {{-- <div class="input-group mb-3 col-6">
-              <input type="text" class="form-control" name="visa_number" id="visa_number" placeholder="رقم الفيزا ">
-              <div class="input-group-append">
-                <div class="input-group-text">
-                    <i class="fas fa-id-card-alt"></i>
-                </div>
-              </div>
-            </div> --}}
-            {{-- <div class="input-group mb-3 col-6">
-                <select class="form-control" name="city_id" id="city_id" >
-                    @foreach ($cities as$city )
-                    <option value="{{ $city->id }}">{{ $city->name }}</option>
-
-                    @endforeach
-
-                </select>
-                <div class="input-group-append">
-                    <div class="input-group-text">
-                        <span class="fas fa-city"></span>
-                    </div>
-                </div>
-
-            </div>
-            <div class="custom-file col-12 mb-3 input-group">
-
-                <input type="file" class="custom-file-input" name="image" id="image">
-                <label class="custom-file-label">اختر الصورة الشخصية </label>
-              </div>
-
-         --}}
 
         <div class="row">
           <div class="col-8">
@@ -127,17 +97,17 @@
 <!-- /.register-box -->
 
 <!-- jQuery -->
-<script src="{{ asset('cms/plugins/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('public/cms/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('cms/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('public/cms/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="{{ asset('cms/dist/js/adminlte.min.js') }}"></script>
+<script src="{{ asset('public/cms/dist/js/adminlte.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
-<script src="{{asset('cms/plugins/toastr/toastr.min.js')}}"></script>
-<script src="{{asset('cms/js/crud.js')}}"></script>
+<script src="{{asset('public/cms/plugins/toastr/toastr.min.js')}}"></script>
+<script src="{{asset('public/cms/js/crud.js')}}"></script>
 <script>
     function performStore() {
 
@@ -148,7 +118,8 @@ let formData = new FormData();
     formData.append('password',document.getElementById('password').value);
     formData.append('mobile',document.getElementById('mobile').value);
 
-
+    var APP_URL = {!! json_encode(url('/register')) !!}
+    store( APP_URL ,formData);
 }
 </script>
 

@@ -48,10 +48,10 @@
                   </td> --}}
                   @if ($admin->image != '')
 
-                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/admin/'.$admin->image)}}" width="60" height="60" alt="User Image"> </td>
+                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('public/storage/images/admin/'.$admin->image)}}" width="60" height="60" alt="User Image"> </td>
                   @else
 
-                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/users.jpg')}}" width="60" height="60" alt="User Image"> </td>
+                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('public/storage/images/users.jpg')}}" width="60" height="60" alt="User Image"> </td>
                   @endif
                   <td>{{$admin->first_name .' '. $admin->last_name  }}</td>
                   <td>{{$admin->date_of_birth }}</td>

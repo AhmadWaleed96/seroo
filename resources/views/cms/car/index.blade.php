@@ -43,10 +43,10 @@
                 <tr>
                     @if ($car->image != '')
 
-                    <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/car/'.$car->image)}}" width="60" height="60" alt="User Image"> </td>
+                    <td>  <img class="img-circle img-bordered-sm" src="{{asset('public/storage/images/car/'.$car->image)}}" width="60" height="60" alt="User Image"> </td>
                     @else
 
-                    <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/Taxi.png')}}" width="60" height="60" alt="User Image"> </td>
+                    <td>  <img class="img-circle img-bordered-sm" src="{{asset('public/storage/images/Taxi.png')}}" width="60" height="60" alt="User Image"> </td>
                     @endif
                   <td >{{$car->name}}</td>
                   <td>{{$car->car_number}}</td>
