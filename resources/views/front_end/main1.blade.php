@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{ asset('public/cms/css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('public/cms/css/main.css') }}">
     <title>SERO</title>
 
@@ -15,10 +15,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="{{ asset('public/cms/js/main.js') }}"></script>
 
 </head>
 <body>
+
+
 
     <div class="page-nav">
         <div class="logo">
@@ -45,11 +46,45 @@
                 </div>
             </div>
         </div>
+        @if (Auth::guard('web')->id())
+                    <div class="dropdown m-3">
+                        {{-- <a class="dropdown-toggle text-decoration-none text-white" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false"><img src="{{asset('cms/assets/img/en-US.png')}}" alt="" style="width: 25px; height: 25px; border-radius: 50%;"> En - English</a> --}}
+                        <a class="dropdown-toggle text-decoration-none text-white" href="#" role="button"
+                            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                            @if (auth('web')->user()->image !='')
+
+                            <img style="width: 25px; height: 25px; border-radius: 50%; border: 4px solid #434343)" src="{{ asset('public/storage/images/register/'.auth('web')->user()->image) }}">
+
+                            @else
+
+                            <img style="width: 25px; height: 25px; border-radius: 50%; border: 4px solid #43434378)" src="{{ asset('public/storage/images/userSolid.png') }}" alt="Logo">
+
+                            @endif
+                             {{ auth('web')->user()->full_name }}
+                        </a>
+
+                        <ul class="dropdown-menu bg-transparent text-white border-0" aria-labelledby="dropdownMenuLink">
+                            <li class="nav-item ">
+                                <a href="{{ route('logout') }}" class="nav-link text-white">
+                                    <i class="fas fa-sign-out-alt ml-2"></i>
+                                         {{ __("Log Out") }}
+                                </a>
+                            </li>
+                            <li class="nav-item ">
+                                <a href="{{ route('profile_edit_user') }}" class="nav-link text-white">
+                                    <i class="fas fa-user ml-2"></i>
+                                        {{ __("Profile") }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    @endif
     </div>
+
 
     <div class="pages-pointers">
         <div class="pointer active"></div>
-        <div class="pointer"></div>
         <div class="pointer"></div>
         <div class="pointer"></div>
     </div>
@@ -57,7 +92,7 @@
     <div class="part1">
 
         <div class="background">
-            <img class="ground-img" src="{{ asset('public/cms/assets/img/background.jpg') }}">
+            <img class="ground-img" src="{{ asset('public/cms/assets/img/jaddah.png') }}">
             <img class="ground-cover" src="{{ asset('public/cms/assets/img/background cover.png') }}">
         </div>
 
@@ -68,11 +103,11 @@
             <img class="travel-word" src="{{ asset('public/cms/assets/img/travel.png') }}">
             <div class="buttons">
                 <div class="buton first-btn">
-                    <a href="{{ route('local') }}"><span>Travel to</span>&nbsp;<span class="sp">Saudi Arabia</span></a>
+                    <a href="{{ route('local') }}" style="text-decoration: none;"><span>Travel to</span>&nbsp;<span class="sp">Saudi Arabia</span></a>
                     <div class="shape"></div>
                 </div>
                 <div class="buton second-btn">
-                    <a href="{{ route('b2c') }}"><span>Tourism around</span>&nbsp;<span class="sp">the world</span></a>
+                    <a href="{{ route('b2c') }}" style="text-decoration: none;"><span>Travel to</span>&nbsp;<span class="sp">Saudi Arabia</span></a>
                     <div class="shape"></div>
                 </div>
             </div>
@@ -169,43 +204,6 @@
             </div>
         </div>
 
-        <div class="pack-block-parent">
-            <div class="package-block">
-                <div class="pl-overscroll">
-                    <div class="background-image">
-                        <img src="{{ asset('public/cms/assets/img/riyadh.jpg') }}">
-                        <div class="bi-cover"></div>
-                        <div class="package-close">X</div>
-                        <div class="package-price">$ 450</div>
-                        <div class="package-bottom">
-                            <div class="bi-desc">entertainment</div>
-                            <div class="pdt-parent">
-                                <div class="package-duration">5 days</div>
-                                <div class="start-package-date">05 Octoper 2022</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="package-content">
-
-                        <div class="package-content-text">
-                            <div class="package-name">Riyadh</div>
-
-                            <div class="package-info">
-                                <span>Boulevard Riyadh City is one of the biggest zones in the season. Triple in size this year, each of the sub-areas features its own set of activities, restaurants, events, and outlets that are catered to all visitor.</span>
-                                <span>It is the largest city on the Arabian Peninsula, and receives around 5 million tourists each year, making it the 49th most visited city in the world and the 6th in the Middle East. Riyadh had a population of 7.6 million people in 2019, making it the most-populous city in Saudi Arabia, 3rd most populous in the Middle East, and 38th most populous in Asia .</span>
-                            </div>
-                        </div>
-
-                        <div class="ticket-btn-parent">
-                            <div class="buy-ticket-btn">Buy Tickets</div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 
     <div class="part3">
@@ -246,19 +244,34 @@
 
         <div class="services">
             <div class="service">
-                <img src="{{ asset('public/cms/assets/img/flying-removebg-preview.png') }}">
+                <img src="{{ asset('public/cms/assets/img/airplane.png') }}">
                 <div class="service-name">Flight Service</div>
                 <div class="service-describe">Extracting A Visa From Anywhere In The World Within 24 Hours</div>
             </div>
             <div class="service">
-                <img src="{{ asset('public/cms/assets/img/hotel-building-07-removebg-preview.png') }}">
+                <img src="{{ asset('public/cms/assets/img/kaaba.png') }}">
+                <div class="service-name">Hajj And Umrah</div>
+                <div class="service-describe">Sero Can Book And Provide Services For Pilgrims And Umrah Pilgrims</div>
+            </div>
+            <div class="service">
+                <img src="{{ asset('public/cms/assets/img/hotel.png') }}">
                 <div class="service-name">Booking Of Hotels</div>
                 <div class="service-describe">Providing Reservations For All Hotels Around The World</div>
             </div>
             <div class="service">
-                <img src="{{ asset('public/cms/assets/img/car-3d-removebg-preview.png') }}">
-                <div class="service-name">Transportation</div>
-                <div class="service-describe">Sero Provides A car Service</div>
+                <img src="{{ asset('public/cms/assets/img/eat.png') }}">
+                <div class="service-name">Restaurant Reservations</div>
+                <div class="service-describe">Facilitate Reservations And Restaurant Sessions</div>
+            </div>
+            <div class="service">
+                <img src="{{ asset('public/cms/assets/img/train-station.png') }}">
+                <div class="service-name">Delivery By Metro</div>
+                <div class="service-describe">Sero Provides A Metro Service</div>
+            </div>
+            <div class="service">
+                <img src="{{ asset('public/cms/assets/img/swimmer.png') }}">
+                <div class="service-name">Swimming Trips</div>
+                <div class="service-describe">Sero Offers Unique Swimming And Recreation Trips</div>
             </div>
         </div>
 
@@ -276,15 +289,15 @@
                 </div>
             </div>
             <div class="footer-details">
-                <div class="email"><img src="{{ asset('public/cms/assets/img/email.png') }}" alt="Email : "><a style="text-decoration: none;" href="mailto:info@sero.com.sa">Info@Sero.Com.Sa</a></div>
-                <div class="phone"><img src="{{ asset('public/cms/assets/img/phone.png') }}" alt="Call : "><a style="text-decoration: none;" href="tel:+966920003593">+966920003593</a></div>
-                <div class="address"><img src="{{ asset('public/cms/assets/img/address.png') }}" alt="Address : "><a  style="text-decoration: none;" href="https://goo.gl/maps/XDdhFi7ybUqznFH97">Tariq Almalik Eabdallah Alfarei Almadinat Almunawara</a></div>
+                <div class="email"><img src="{{ asset('public/cms/assets/img/email.png') }}" alt="Email : "><a href="mailto:info@sero.com.sa">Info@Sero.Com.Sa</a></div>
+                <div class="phone"><img src="{{ asset('public/cms/assets/img/phone.png') }}" alt="Call : "><a href="tel:+966920003593">+966920003593</a></div>
+                <div class="address"><img src="{{ asset('public/cms/assets/img/address.png') }}" alt="Address : "><a href="https://goo.gl/maps/XDdhFi7ybUqznFH97">Tariq Almalik Eabdallah Alfarei Almadinat Almunawara</a></div>
             </div>
             <div class="footer-social">
-                <div class="facebook"><img src="{{ asset('public/cms/assets/img/facebook.png') }}" alt="Facebook : "><a style="text-decoration: none;" href="https://www.facebook.com/profile.php?id=100082581573020">Sero11</a></div>
-                <div class="twitter"><img src="{{ asset('public/cms/assets/img/twitter.png') }}" alt="Twitter : "><a style="text-decoration: none;" href="https://twitter.com/serovision1?s=21&t=ObGKxjr4RhzOnCC9EgP2mg">sero_comp</a></div>
-                <div class="instgram"><img src="{{ asset('public/cms/assets/img/instagram.png') }}" alt="Instgram : "><a style="text-decoration: none;" href="https://www.instagram.com/serovision.1/">sero_travel</a></div>
-                <div class="whatsapp"><img src="{{ asset('public/cms/assets/img/whatsapp.png') }}" alt="Whatsapp : "><a style="text-decoration: none;" href="http://iwtsp.com/966148255990">+966920003593</a></div>
+                <div class="facebook"><img src="{{ asset('public/cms/assets/img/facebook.png') }}" alt="Facebook : "><a href="https://www.facebook.com/profile.php?id=100082581573020">Sero11</a></div>
+                <div class="twitter"><img src="{{ asset('public/cms/assets/img/twitter.png') }}" alt="Twitter : "><a href="https://twitter.com/serovision1?s=21&t=ObGKxjr4RhzOnCC9EgP2mg">sero_comp</a></div>
+                <div class="instgram"><img src="{{ asset('public/cms/assets/img/instagram.png') }}" alt="Instgram : "><a href="https://www.instagram.com/serovision.1/">sero_travel</a></div>
+                <div class="whatsapp"><img src="{{ asset('public/cms/assets/img/whatsapp.png') }}" alt="Whatsapp : "><a href="http://iwtsp.com/966148255990">+966920003593</a></div>
             </div>
 
             <div class="copyright"><img src="{{ asset('public/cms/assets/img/copyright.png') }}"><span>Copyright 2022, All Right Reserved</span></div>
@@ -292,6 +305,7 @@
     </div>
 
 
+    <script src="{{ asset('public/cms/js/dashboard.js') }}"></script>
 
 
 </body>

@@ -155,7 +155,7 @@ html {
 
 .trans-selection .trans-select:hover {
     opacity: 1;
-    background-color: rgb(67 67 67 / 47%);
+    background-color: #43434378;
     border: 2px solid rgb(157 157 157 / 65%);
 }
 
