@@ -133,7 +133,6 @@ Route::prefix('/')->middleware('auth:web')->group(function(){
 
     Route::resource('book_hotels', BookHotelController::class);
     Route::post('book_hotels/{id}' , [BookHotelController::class , 'update'])->name('book_hotels');
-<<<<<<< HEAD
 
 
     Route::get('/create/book-hotel/{id}', [BookHotelController::class, 'createBook'])->name('create-book-hotel');
@@ -141,9 +140,7 @@ Route::prefix('/')->middleware('auth:web')->group(function(){
 
 
 
-=======
 
->>>>>>> dfaf6205028222e911ebe8647018f7e7144f95a2
     // Route::get('/index/book-hotel/{id}', [BookHotelController::class, 'indexBook'])->name('index-book-hotel');
 });
 
