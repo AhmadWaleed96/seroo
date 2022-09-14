@@ -6,14 +6,14 @@
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Second Page</title>
+        <title>Book Hotel</title>
         <link rel="stylesheet" href="{{ asset('cms/css/second_page.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="{{ asset('cms/plugins/toastr/toastr.min.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/189263d7ef.js" crossorigin="anonymous"></script>
@@ -93,29 +93,29 @@ img {
             </div>
 
         </div>
-   
+
 
         <div class="page_contain">
             <section class="gallery " >
                 @foreach ($images as $image)
-                        
-                
+
+
                 <div class="gallery__item">
                   <input type="radio" id="{{ $image->id }}" checked name="gallery" class="gallery__selector" value="{{ $image->id }}" />
                   <img class="gallery__img" src="{{asset('storage/image_hotel/'.$image->image)}}" alt="" width="600px" height="400px" />
                   <label for="{{ $image->id }}" class="gallery__thumb"><img src="{{asset('storage/image_hotel/'.$image->image)}}" alt="" width="150px" height="100px" /></label>
                 </div>
-                
+
                 @endforeach
             </section>
             <div class="div2">
                 <form>
 
-                
+
                 <div class="header">
-                        
+
                     <div class="header_price"><span class="coin">SAR</span><span class="price">75.4</span><div class="info">* شامل ضريبة القيمة المضافة</div></div>
-                    
+
                 </div>
                 @foreach ($hotels as $hotel )
                 <div class="block"></div>
@@ -123,19 +123,19 @@ img {
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">وقت الدخول *  </label>
                     <input type="text" class="form-control" disabled name="date_of_arrival" id="date_of_arrival" value="{{ $hotel->checkin }}">
-                    
+
                 </div>
                 <input type="hidden" name="hotel_id" id="hotel_id" value="{{$id}}">
                 <div class="mb-2">
                     <label for="exampleFormControlInput1" class="form-label"> عدد الغرف *</label>
                      <input type="text" class="form-control" disabled name="number_of_room" id="number_of_room" value="{{ $hotel->number_of_room}}">
-                </div> 
+                </div>
                 <div class="mb-2 leave">
                     <label for="exampleFormControlInput1" class="form-label">  عدد المسافرين *</label>
                      <input type="text" class="form-control" disabled name="number_of_people" id="number_of_people" value="{{ $hotel->number_of_people }}">
-                    </div> 
-                    
-                    
+                    </div>
+
+
                     {{-- <div class="mb-2 leave">
                         <label for="exampleFormControlInput1" class="form-label">فرز حسب السعر</label>
                         <select class="form-select" aria-label="Default select example">
@@ -159,24 +159,24 @@ img {
                 <button type="button" onclick="performStore()" class="btn btn-secondary btn-sm">احجز الان</button>
             </form>
             </div>
-            
+
             <div class="div3">
-                
+
                 <div class="header">
-                     
+
                     @foreach ($hotels as $hotel)
-                        
+
                     <div class="name_parent"><span class="name">{{ $hotel->name }}</span></div>
                     <div class="phone"><span>(+966) 055 9148 410</span><i class="fas fa-phone"></i></div>
                     <div class="map">
                         <i class="fas fa-map-marker-alt"></i>
-                        <span> 
+                        <span>
                         {{$hotel->city->name}} - {{ $hotel->address }}
                         </span>
                     </div>
                     <div class="rating"><span class="num">{{ $hotel->rate }}</span><span> :التقييم</span>
                                     @if ($hotel->rate  =='5')
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> 
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     @elseif ($hotel->rate  =='4')
                                     <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                                     @elseif ($hotel->rate  =='3')
@@ -189,12 +189,12 @@ img {
                                     <span class="badge bg-danger">not found</span>
 
                                     @endif
-                        
+
                     </div>
                     @endforeach
                 </div>
             </div>
-            
+
             <div class="block full"></div>
             <div class="select-btns">
                 <ul class="nav nav-pills" role="tablist">
@@ -216,8 +216,8 @@ img {
                     <div class="bottom-info">الرجاء تحديد اي من الخيار ادناه</div>
                     <div class="rooms">
                         @foreach ($rooms as $room )
-                            
-                        
+
+
                         <div class="room">
                             <div class="header"><span> {{$room->number_room}}</span><input class="form-check-input 1star" type="checkbox" value="" id="flexCheckDefault"></div>
                             <div class="info"> {{$room->name_room}}</div>
@@ -241,19 +241,19 @@ img {
                 </div>
                 @foreach ($facilities as $facilitie)
                 <div id="menu2" class="container tab-pane fade"><br>
-                        
+
                     <h3>{{ $facilitie->id }}</h3>
                     <p>{{ $facilitie->discription }}</p>
                 </div>
                 @endforeach
                 @foreach ($facilities as $facilitie)
                 <div id="menu3" class="container tab-pane fade"><br>
-                        
+
                     <p>{{ $facilitie->discription }}</p>
                 </div>
                 @endforeach
               </div>
-              
+
         </div>
 
 
@@ -270,19 +270,19 @@ img {
 
 
             function performStore() {
-        
+
                 let formData = new FormData();
                     formData.append('date_of_arrival',document.getElementById('date_of_arrival').value);
                     formData.append('departure_date',document.getElementById('departure_date').value);
                     formData.append('number_of_room',document.getElementById('number_of_room').value);
                     formData.append('number_of_people',document.getElementById('number_of_people').value);
                     formData.append('hotel_id',document.getElementById('hotel_id').value);
-        
-        
+
+
                 store('/book_hotels',formData);
-        
+
             }
-        
+
         </script>
     </body>
 
