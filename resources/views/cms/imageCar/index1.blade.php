@@ -30,7 +30,7 @@
                 <tr class="bg-danger">
                   <th> رقم الصور </th>
                   <th>   الصورة </th>
-                  
+
                   <th> الاعدادات </th>
                 </tr>
               </thead>
@@ -39,7 +39,7 @@
                 <tr>
                   <td>{{$image->id}}</td>
                   <td>
-                    <img class="img-circle img-bordered-sm" src="{{asset('storage/image_car/'.$image->image)}}" width="60" height="60" alt="User Image">
+                    <img class="img-circle img-bordered-sm" src="{{asset('public/storage/image_car/'.$image->image)}}" width="60" height="60" alt="User Image">
                   </td>
 
                   <td>

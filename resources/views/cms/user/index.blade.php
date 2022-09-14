@@ -33,27 +33,27 @@
                   <th>  الأيميل </th>
                   <th>   رقم الجوال </th>
                   <th>  الصورة  </th>
-                  
+
                   <th> الاعدادات </th>
                 </tr>
               </thead>
               <tbody>
                 @foreach ($users as $user )
                 <tr>
-           
+
                   {{-- <td>{{$user->who}}</td> --}}
-                  
+
                   <td>{{ $user->first_name  .' '. $user->last_name  }}</td>
                   {{-- <td>{{$user->city ? $user->city->name:' ' }}</td> --}}
                   <td>{{$user->city_id}}</td>
                   <td>{{$user->email}}</td>
                   <td>{{$user->mobile}}</td>
                   @if ($user->image != '')
-                      
-                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/register/'.$user->image)}}" width="60" height="60" alt="User Image"> </td>
+
+                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('public/storage/images/register/'.$user->image)}}" width="60" height="60" alt="User Image"> </td>
                   @else
-                  
-                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/users.jpg')}}" width="60" height="60" alt="User Image"> </td>
+
+                  <td>  <img class="img-circle img-bordered-sm" src="{{asset('public/storage/images/users.jpg')}}" width="60" height="60" alt="User Image"> </td>
                   @endif
 
                   <td>
