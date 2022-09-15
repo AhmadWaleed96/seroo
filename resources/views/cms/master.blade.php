@@ -325,6 +325,32 @@
                 {{-- <i class="fas fa-city "></i> --}}
                 <i class="fa-solid fa-car nav-icon"></i>
             <p>
+                الحزم
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('packages.index')}}" class="nav-link">
+
+                    <i class="fas fa-desktop nav-icon"></i>
+                  <p>عرض الحزم</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('packages.create')}}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+
+                  <p>اضافة حزم </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                {{-- <i class="fas fa-city "></i> --}}
+                <i class="fa-solid fa-car nav-icon"></i>
+            <p>
                 المركبات
                 <i class="fas fa-angle-left right"></i>
               </p>

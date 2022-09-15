@@ -9,6 +9,7 @@ use App\Http\Controllers\FacilitieController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImageCarController;
 use App\Http\Controllers\ImageHotelController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\RoleController;
@@ -69,6 +70,9 @@ route::prefix('cms/admin/')->middleware('auth:admin')->group(function(){
 
     Route::resource('cities', CityController::class);
     Route::post('update_cities/{id}' , [CityController::class , 'update'])->name('update_cities');
+
+    Route::resource('packages', PackageController::class);
+    Route::post('packages/{id}' , [PackageController::class , 'update'])->name('update_packages');
 
     Route::resource('admins', AdminController::class);
     Route::post('update_admins/{id}' , [AdminController::class , 'update'])->name('update_admins');
