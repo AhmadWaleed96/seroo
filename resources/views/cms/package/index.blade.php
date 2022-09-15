@@ -21,7 +21,7 @@
           <div class="card-header">
             <h3 class="card-title"> عرض الحزم </h3>
             <div class="card-tools">
-                
+
                 <a href="{{route('packages.create')}}"><button type="button" class="btn btn-lg btn-primary">انشاء حزمة جديدة</button></a>
               </div>
               <br>
@@ -57,7 +57,7 @@
                   <td>{{$package->description }}</td>
                   @if ($package->image != '')
 
-                    <td>  <img class="img-circle img-bordered-sm" src="{{asset('public/storage/images/package/'.$package->image)}}" width="60" height="60" alt="User Image"> </td>
+                    <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/package/'.$package->image)}}" width="60" height="60" alt="User Image"> </td>
                     @else
 
                     <td>  <img class="img-circle img-bordered-sm" src="{{asset('storage/images/hotels/1659308670image.jpg')}}" width="60" height="60" alt="User Image"> </td>
@@ -105,5 +105,3 @@
   }
  </script>
 @endsection
-
-

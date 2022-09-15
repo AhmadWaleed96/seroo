@@ -8,11 +8,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Package extends Model
 {
-    use SoftDeletes;
-
-	protected $with = ['user'];
-
-    public function users(){
-        return $this->hasMany(User::class);
-    }
+    use HasFactory;
 }

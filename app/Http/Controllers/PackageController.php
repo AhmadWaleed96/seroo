@@ -14,7 +14,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages=Package::all()->orderBy('id','desc')->paginate(5);
+        $packages = Package::orderBy('id','desc')->paginate(5);
         return response()->view('cms.package.index',compact('packages'));
     }
 
@@ -25,8 +25,7 @@ class PackageController extends Controller
      */
     public function create()
     {
-        $packages=Package::all();
-        return response()->view('cms.package.create' ,compact('packages'));
+        return response()->view('cms.package.create');
     }
 
     /**
@@ -41,6 +40,7 @@ class PackageController extends Controller
             // 'name'=>"required|min:4"
         ]);
 
+        if(!$validetor->fails()){
         $packages=new Package();
         $packages->name=$request->get('name');
         $packages->price=$request->get('price');
@@ -49,7 +49,6 @@ class PackageController extends Controller
         $packages->checkin=$request->get('checkin');
         $packages->checkout=$request->get('checkout');
         $packages->description=$request->get('description');
-        if(!$validetor->fails()){
 
             if (request()->hasFile('image')) {
 
@@ -57,7 +56,7 @@ class PackageController extends Controller
 
                 $imageName = time() . 'image.' . $image->getClientOriginalExtension();
 
-                $image->move('storage/images/admin', $imageName);
+                $image->move('storage/images/package', $imageName);
 
                 $packages->image = $imageName;
 
@@ -83,7 +82,8 @@ class PackageController extends Controller
      */
     public function show($id)
     {
-        //
+        $packages= package::findOrFail($id);
+        return response()->view("cms.package.show",compact('packages'));
     }
 
     /**
@@ -94,7 +94,8 @@ class PackageController extends Controller
      */
     public function edit($id)
     {
-        //
+        $packages=package::findOrFail($id);
+        return response()->view('cms.package.edit',compact('packages'));
     }
 
     /**
@@ -106,7 +107,49 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator($request->all(),[
+            'name_room' => 'required|string|min:3|max:20',
+        ]
+    );
+
+        if(!$validator->fails()){
+
+            $packages=package::findOrFail($id);
+
+            $packages->name=$request->get('name');
+        $packages->price=$request->get('price');
+        $packages->entertainment=$request->get('entertainment');
+        $packages->duration=$request->get('duration');
+        $packages->checkin=$request->get('checkin');
+        $packages->checkout=$request->get('checkout');
+        $packages->description=$request->get('description');
+
+            if (request()->hasFile('image')) {
+
+                $image = $request->file('image');
+
+                $imageName = time() . 'image.' . $image->getClientOriginalExtension();
+
+                $image->move('storage/images/package', $imageName);
+
+                $packages->image = $imageName;
+
+                }
+
+            $isSaved = $packages->save();
+            return ['redirect'=>route('packages.index',$id)];
+
+            if($isSaved){
+                return response()->json(['icon' => 'success' , 'title' => 'تم تعديل الغرفة بنجاح'] , 200);
+
+            }
+            else{
+                return response()->json(['icon' => 'error' , 'title' => 'فشلت تعديل الغرفة'] , 400);
+            }
+        }
+            else{
+                return response()->json(['icon' => 'error' , 'title' => $validator->getMessageBag()->first()] , 400);
+            }
     }
 
     /**
