@@ -14,7 +14,7 @@ class PackageController extends Controller
      */
     public function index()
     {
-        $packages=Package::all()->orderBy('id','desc')->paginate(5);
+        $packages = Package::orderBy('id','desc')->paginate(5);
         return response()->view('cms.package.index',compact('packages'));
     }
 
@@ -25,8 +25,7 @@ class PackageController extends Controller
      */
     public function create()
     {
-        $packages=Package::all();
-        return response()->view('cms.package.create' ,compact('packages'));
+        return response()->view('cms.package.create');
     }
 
     /**
@@ -41,6 +40,7 @@ class PackageController extends Controller
             // 'name'=>"required|min:4"
         ]);
 
+        if(!$validetor->fails()){
         $packages=new Package();
         $packages->name=$request->get('name');
         $packages->price=$request->get('price');
@@ -49,7 +49,6 @@ class PackageController extends Controller
         $packages->checkin=$request->get('checkin');
         $packages->checkout=$request->get('checkout');
         $packages->description=$request->get('description');
-        if(!$validetor->fails()){
 
             if (request()->hasFile('image')) {
 
@@ -57,7 +56,7 @@ class PackageController extends Controller
 
                 $imageName = time() . 'image.' . $image->getClientOriginalExtension();
 
-                $image->move('storage/images/admin', $imageName);
+                $image->move('storage/images/package', $imageName);
 
                 $packages->image = $imageName;
 

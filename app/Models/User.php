@@ -61,4 +61,7 @@ class User extends Authenticatable
     public function bookCar(){
         return $this->hasMany(BookCar::class);
     }
+    // public function package(){
+    //     return $this->belongsTo(Package::class);
+    // }
 }
