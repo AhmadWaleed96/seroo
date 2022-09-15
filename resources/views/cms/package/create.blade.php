@@ -16,7 +16,7 @@
             <!-- left column -->
             <div class="col-md-12">
                 <!-- general form elements -->
-                <div class="card card-primary">
+                <div class="card card-danger">
                     <div class="card-header">
                         <h3 class="card-title">عرض بيانات الحزم </h3>
                     </div>
@@ -39,7 +39,7 @@
                                 <div class="form-group col-md-6">
                                     <label for="price"> السعر</label>
                                     <input type="text" name="price" class="form-control"
-                                        id="price" placeholder="ادخل السعر   ">
+                                        id="price" placeholder="ادخل السعر">
                                 </div>
 
 
@@ -48,7 +48,7 @@
 
                                 <div class="form-group col-md-4">
                                     <label for="entertainment"> نوع السياحة  </label>
-                                    <input type="number" name="entertainment" class="form-control" max="5" min="1"
+                                    <input type="number" name="entertainment" class="form-control"
                                         id="entertainment" placeholder="ادخل نوع السياحة ">
                                 </div>
 
