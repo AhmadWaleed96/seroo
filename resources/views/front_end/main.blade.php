@@ -135,9 +135,18 @@
         </div>
 
         <div class="packages">
-            <div class="package">
+            <?php
+            use App\Models\Package;
+            $packages = Package::orderBy('id','desc')->paginate(6);
+
+
+            ?>
+                @foreach ( $packages as $package )
+                
+            <div class="package" >
+
                 <div class="info">click to see more</div>
-                <img class="package-img" src="{{ asset('public/cms/assets/img/riyadh.jpg') }}">
+                <img class="package-img" src="{{ asset('storage/images/package/'.$package->image) }}">
                 <div class="package-cover"></div>
                 <div class="package-name">
                     <span>Riyadh</span>
@@ -146,7 +155,11 @@
                     <div class="detail">entertainment</div>
                 </div>
             </div>
-            <div class="package">
+               
+            @endforeach
+
+        
+            {{-- <div class="package">
                 <div class="info">click to see more</div>
                 <img class="package-img" src="{{ asset('public/cms/assets/img/makkah.jpg') }}">
                 <div class="package-cover"></div>
@@ -200,14 +213,20 @@
                 <div class="package-details">
                     <div class="detail">entertainment</div>
                 </div>
-            </div>
+            </div> --}}
         </div>
+        <div class="pack-block-parent" >
+            
+            <?php
+            // $packag = Package::where('id',$packages->id)->get();
 
-        <div class="pack-block-parent">
-            <div class="package-block">
+            
+            ?>
+
+            <div class="package-block" id="">
                 <div class="pl-overscroll">
                     <div class="background-image">
-                        <img src="{{ asset('public/cms/assets/img/riyadh.jpg') }}">
+                        <img src="{{ asset('storage/images/package/') }}">
                         <div class="bi-cover"></div>
                         <div class="package-close">X</div>
                         <div class="package-price">$ 450</div>
@@ -238,8 +257,10 @@
                     </div>
                 </div>
             </div>
+            
+            
         </div>
-
+        
     </div>
 
     <div class="part3">

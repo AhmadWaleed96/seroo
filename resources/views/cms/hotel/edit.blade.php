@@ -52,6 +52,11 @@
                                         id="rate" placeholder="ادخل التقيم">
                                 </div>
                                 <div class="form-group col-md-4">
+                                    <label for="mobile"> رقم الموبايل </label>
+                                    <input type="number" name="mobile" class="form-control" value="{{ $hotels->mobile }}"
+                                        id="mobile" placeholder="ادخل رقم الموبايل">
+                                </div>
+                                {{-- <div class="form-group col-md-4">
                                     <label for="checkin"> وقت الدخول </label>
                                     <input type="date" name="checkin" class="form-control" value="{{ $hotels->checkin }}"
                                         id="checkin" placeholder="ادخل وقت الدخول ">
@@ -78,7 +83,7 @@
                                     <input type="number" name="number_of_room" class="form-control" value="{{ $hotels->number_of_room }}"
                                         id="number_of_room" placeholder="ادخل  عدد الغرف  ">
 
-                                </div>
+                                </div> --}}
 
                                  <div class="form-group col-md-4">
                                     <label for="city_id"> المدينة  </label>
@@ -166,13 +171,17 @@ $('.city_id').select2({
             formData.append('image',document.getElementById('image').files[0]);
             formData.append('discreption',document.getElementById('discreption').value);
             formData.append('city_id',document.getElementById('city_id').value);
-            formData.append('checkin',document.getElementById('checkin').value);
-            formData.append('checkout',document.getElementById('checkout').value);
-            formData.append('number_of_room',document.getElementById('number_of_room').value);
-            formData.append('number_of_people',document.getElementById('number_of_people').value);
-            formData.append('number_of_children',document.getElementById('number_of_children').value);
+            formData.append('mobile',document.getElementById('mobile').value);
+            // formData.append('checkin',document.getElementById('checkin').value);
+            // formData.append('checkout',document.getElementById('checkout').value);
+            // formData.append('number_of_room',document.getElementById('number_of_room').value);
+            // formData.append('number_of_people',document.getElementById('number_of_people').value);
+            // formData.append('number_of_children',document.getElementById('number_of_children').value);
+            var APP_URL = {!! json_encode(url('/cms/admin/update_hotels/')) !!}
 
-            storeRoute('/cms/admin/update_hotels/'+id , formData );
+
+            storeRoute(APP_URL+'/'+id , formData );
+
 
     }
 

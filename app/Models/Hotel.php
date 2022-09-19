@@ -24,4 +24,7 @@ class Hotel extends Model
     public function bookHotels(){
         return $this->hasMany(BookHotel::class);
     }
+    public function item_hotel(){
+        return $this->hasOne(ItemHotel::class);
+    }
 }

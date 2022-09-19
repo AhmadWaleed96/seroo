@@ -7,7 +7,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Search Hotel</title>
-        <link rel="stylesheet" href="{{ asset('cms/css/first_page.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/cms/css/first_page.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,7 +19,7 @@
 
         <div class="background">
 
-            <img src="{{ asset('cms/assets/img/background2.jpg') }}">
+            <img src="{{ asset('public/cms/assets/img/background2.jpg') }}">
             <div class="gradiant"></div>
             <div class="steps">
                 <div class="step search_step done"><i class="fas fa-search step_icon"></i></div>
@@ -190,41 +190,47 @@
             </div>
             <div class="results_container">
                 <div class="results">
-                    @foreach ($hotels as $hotel )
+                    @if ($item_hotels->isNotEmpty())
+                        
+                    
+                    @foreach ($item_hotels as $item )
                     <div class="result">
                         <div class="image">
-                            @if ($hotel->image !='')
-                            <img class="default_img" src="{{asset('storage/images/hotels/'.$hotel->image)}}">
+                            @if ($item->hotel->image !='')
+                            <img class="default_img" src="{{asset('storage/images/hotels/'.$item->hotel->image)}}">
                             @else
                             <img class="default_img" src="{{ asset('cms/assets/img/hotel_default_background.jpg') }}">
                             @endif
                             {{-- <img class="result_img" src="{{ asset('cms/assets/img/hotel1.jpg') }}"> --}}
                         </div>
                         <div class="card_container">
-                            <div class="label"><i class="fas fa-tag"></i><span>{{ $hotel->name }} </span></div>
-                            <div class="address"><img src="{{ asset('cms/assets/img/map.svg') }}"><span>{{ $hotel->city->name }} - {{ $hotel->address }}</span></div>
+                            <div class="label"><i class="fas fa-tag"></i><span>{{ $item->hotel->name }} </span></div>
+                            <div class="address"><img src="{{ asset('cms/assets/img/map.svg') }}"><span>{{ $item->hotel->city->name }} - {{ $item->hotel->address }}</span></div>
                             <div class="rating">
-                                @if ($hotel->rate  =='5')
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span class="ratings_num">{{ $hotel->rate }}</span>
-                                    @elseif ($hotel->rate  =='4')
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ratings_num">{{ $hotel->rate }}</span>
-                                    @elseif ($hotel->rate  =='3')
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ratings_num">{{ $hotel->rate }}</span>
-                                    @elseif ($hotel->rate  =='2')
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ratings_num">{{ $hotel->rate }}</span>
-                                    @elseif ($hotel->rate  =='1')
-                                    <i class="fas fa-star"></i><span class="ratings_num">{{ $hotel->rate }}</span>
+                                @if ($item->hotel->rate  =='5')
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span class="ratings_num">{{ $item->hotel->rate }}</span>
+                                    @elseif ($item->hotel->rate  =='4')
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ratings_num">{{ $item->hotel->rate }}</span>
+                                    @elseif ($item->hotel->rate  =='3')
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ratings_num">{{ $item->hotel->rate }}</span>
+                                    @elseif ($item->hotel->rate  =='2')
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><span class="ratings_num">{{ $item->hotel->rate }}</span>
+                                    @elseif ($item->hotel->rate  =='1')
+                                    <i class="fas fa-star"></i><span class="ratings_num">{{ $item->hotel->rate }}</span>
                                     @else
                                     <span class="badge bg-danger">not found</span>
 
                                     @endif
 
 
-                                    <a href="{{route('create-book-hotel',['id'=>$hotel->id])}}" class="btn btn-danger btn-sm "> حجز الفندق</a>
+                                    <a href="{{route('create-book-hotel',['id'=>$item->hotel->id])}}" class="btn btn-danger btn-sm "> حجز الفندق</a>
                             </div>
                         </div>
                     </div>
                     @endforeach
+                    @else
+                     <h3 class="text-center"> <span class="badge bg-danger">Not Found</span></h3>
+                    @endif
                     {{-- <div class="result">
                         <div class="image">
                             <img class="default_img" src="{{ asset('cms/assets/img/hotel_default_background.jpg') }}">
@@ -284,7 +290,7 @@
             </div>
         </div>
 
-        <script src="{{ asset('cms/js/first_page.js') }}"></script>
+        <script src="{{ asset('public/cms/js/first_page.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     </body>

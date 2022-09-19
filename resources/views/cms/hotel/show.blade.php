@@ -64,6 +64,11 @@
                                         id="rate" placeholder="ادخل التقيم">
                                 </div>
                                 <div class="form-group col-md-4">
+                                    <label for="rate">رقم الموبايل  </label>
+                                    <input class="form-control"  value="{{ $hotels->mobile }}" disabled
+                                        id="rate" placeholder="ادخل رقم الموبايل ">
+                                </div>
+                                {{-- <div class="form-group col-md-4">
                                     <label for="checkin"> وقت الدخول </label>
                                     <input type="date" name="checkin" class="form-control" value="{{ $hotels->checkin }}" disabled
                                         id="checkin" placeholder="ادخل وقت الدخول ">
@@ -90,7 +95,7 @@
                                     <input type="number" name="number_of_room" class="form-control" value="{{ $hotels->number_of_room }}" disabled
                                         id="number_of_room" placeholder="ادخل  عدد الغرف  ">
 
-                                </div>
+                                </div> --}}
 
                                  <div class="form-group col-md-4">
                                     <label for="city_id"> المدينة  </label>

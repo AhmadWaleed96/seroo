@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBookHotelsTable extends Migration
+class CreateItemHotelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,18 @@ class CreateBookHotelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('book_hotels', function (Blueprint $table) {
+        Schema::create('item_hotels', function (Blueprint $table) {
             $table->id();
-            $table->date('date_of_arrival');
-            $table->date('departure_date');
-            $table->float('number_of_people');
-            $table->float('number_of_room');
             $table->string('price');
+            $table->date('checkin');
+            $table->date('checkout');
+            $table->integer('number_of_room');
+            $table->integer('number_of_people');
+            $table->integer('number_of_children');
+            $table->foreignId("city_id");
+            $table->foreign("city_id")->on('cities')->references('id');
             $table->foreignId("hotel_id");
             $table->foreign("hotel_id")->on('hotels')->references('id');
-            $table->foreignId("user_id");
-            $table->foreign("user_id")->on('users')->references('id');
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreateBookHotelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_hotels');
+        Schema::dropIfExists('item_hotels');
     }
 }
