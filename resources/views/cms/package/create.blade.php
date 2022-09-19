@@ -68,10 +68,12 @@
                                     <input type="date" name="checkout" class="form-control"
                                         id="checkout" placeholder="ادخل وقت المغادرة ">
                                 </div>
-                                <div class="form-group col-md-4">
-                                    <label for="description"> عدد المسافرين  </label>
-                                    <input type="text" name="description" class="form-control"
-                                        id="description" placeholder="وصف الرحلة  ">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="discreption"> الوصف</label>
+                                        <textarea class="form-control" style="resize: none;" id="discreption"
+                                            name="discreption" rows="4" placeholder="ادخل الوصف" cols="50"></textarea>
+                                    </div>
                                 </div>
 
                                 <div class="form-group col-4">
@@ -83,16 +85,6 @@
                                     </div>
                                   </div>
 
-                            </div>
-                            <div class="row">
-
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label for="discreption"> الوصف</label>
-                                        <textarea class="form-control" style="resize: none;" id="discreption"
-                                            name="discreption" rows="4" placeholder="ادخل الوصف" cols="50"></textarea>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <br>
@@ -136,7 +128,6 @@
             formData.append('duration',document.getElementById('duration').value);
             formData.append('checkin',document.getElementById('checkin').value);
             formData.append('checkout',document.getElementById('checkout').value);
-            formData.append('description',document.getElementById('description').value);
             formData.append('image',document.getElementById('image').files[0]);
             var APP_URL = {!! json_encode(url('/cms/admin/packages')) !!}
         store( APP_URL ,formData);

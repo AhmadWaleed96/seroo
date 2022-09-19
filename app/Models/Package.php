@@ -10,9 +10,4 @@ class Package extends Model
 
     use HasFactory;
 
-	// protected $with = ['user'];
-
-    // public function users(){
-    //     return $this->hasMany(User::class);
-    // }
 }

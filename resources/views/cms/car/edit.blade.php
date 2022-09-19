@@ -139,7 +139,7 @@
         var APP_URL = {!! json_encode(url('/cms/admin/update_cars/')) !!}
         storeRoute( APP_URL+id ,formData);
 
-    storeRoute(url('/cms/admin/update_cars/')+id , formData );
+    //storeRoute(url('/cms/admin/update_cars/')+id , formData );
     }
     </script>
 

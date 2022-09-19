@@ -71,7 +71,7 @@ route::prefix('cms/admin/')->middleware('auth:admin')->group(function(){
     Route::post('update_cities/{id}' , [CityController::class , 'update'])->name('update_cities');
 
     Route::resource('packages', PackageController::class);
-    Route::post('packages/{id}' , [PackageController::class , 'update'])->name('update_packages');
+    Route::post('update_packages/{id}' , [PackageController::class , 'update'])->name('update_packages');
 
     Route::resource('admins', AdminController::class);
     Route::post('update_admins/{id}' , [AdminController::class , 'update'])->name('update_admins');
