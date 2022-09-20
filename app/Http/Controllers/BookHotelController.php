@@ -30,7 +30,7 @@ class BookHotelController extends Controller
 
         // if ($request->get('number_of_children') || $request->get('number_of_room')) {
         //     $item_hotels = ItemHotel::where('number_of_room', 'like', '%' . $request->number_of_room . '%')
-            
+
         //     ->orWhere('number_of_children', 'like', '%' . $request->number_of_children . '%');
         // }
         // if ($request->get('number_of_people')) {

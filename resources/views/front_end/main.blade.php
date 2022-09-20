@@ -142,7 +142,7 @@
 
             ?>
                 @foreach ( $packages as $package )
-                
+
             <div class="package" >
 
                 <div class="info">click to see more</div>
@@ -155,10 +155,10 @@
                     <div class="detail">entertainment</div>
                 </div>
             </div>
-               
+
             @endforeach
 
-        
+
             {{-- <div class="package">
                 <div class="info">click to see more</div>
                 <img class="package-img" src="{{ asset('public/cms/assets/img/makkah.jpg') }}">
@@ -216,15 +216,8 @@
             </div> --}}
         </div>
         <div class="pack-block-parent" >
-            
-            <?php
-            // $packag = Package::where('id',$packages->id)->get();
 
-<<<<<<< HEAD
 
-=======
-            
-            ?>
 
             <div class="package-block" id="">
                 <div class="pl-overscroll">
@@ -260,11 +253,9 @@
                     </div>
                 </div>
             </div>
-            
-            
+
+
         </div>
-        
->>>>>>> c517c11ae892c5eb60a58e5af80ec7b0bbb57f8d
     </div>
 
     <div class="part3">

@@ -266,57 +266,87 @@
                     <div class="dropdown-parent date">
                         <div class="datepicker input-daterange input-group" id="leave-return">
                             <div class="datepicker-parent start">
-                                <div class="dropdown-name">Departure Date</div>
-                                <input type="button" class="input-sm form-control" value="📅 leave" name="start">
+                                <div class="dropdown-name">Start Date</div>
+                                <input type="button" class="input-sm form-control" value="📅 leave" name="start_date" id="start_date">
                                 <div class="dropdown-info">!</div>
                             </div>
                             <div class="datepicker-parent end">
-                                <div class="dropdown-name">Return date</div>
-                                <input type="button" class="input-sm form-control" value="📅 return" name="end">
+                                <div class="dropdown-name">End Date</div>
+                                <input type="button" class="input-sm form-control" value="📅 return" name="end_date" id="end_date">
                                 <div class="dropdown-info">!</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="dropdown-parent text-input">
-                        <div class="dropdown-name">travelers</div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>1 passenger</option>
-                            <option value="2">2 passengers</option>
-                            <option value="3">3 passengers</option>
-                        </select>
-                        <div class="dropdown-info">!</div>
-                    </div>
 
                     <div class="dropdown-parent text-input">
-                        <div class="dropdown-name">Economie</div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>economie</option>
-                            <option value="2">economie</option>
-                            <option value="3">economie</option>
-                        </select>
+                        <div class="dropdown col-12 col-sm-12 col-md-6 col-lg-3">
+                            <div class="dropdown-name">Travelers</div>
+                            <a class="btn btn-secondary dropdown-toggle-sp form-control w-100">
+
+                                <input type="text" hidden id="input1"  name='number_of_people' @if( request()->number_of_people) value={{request()->number_of_people}} @endif >
+
+                                <input type="text" hidden id="input3"  name='number_of_children' @if( request()->number_of_children) value={{request()->number_of_children}} @endif >
+
+                                <span class="adults_num" id="number_of_people">0</span> {{__("Adults")}} <span class="children_num" id='number_of_children'>0</span> {{__("Children")}}
+                                <script>
+                                    function people1() {
+                                        let people=document.querySelector('#number_of_people');
+                                        let input1=document.querySelector('#input1');
+                                        return input1.value=people.innerHTML;
+                                    }
+                                    function children1() {
+                                        let children=document.querySelector('#number_of_children');
+                                        let input3=document.querySelector('#input3');
+                                        return input3.value=children.innerHTML;
+                                    }
+                                </script>
+                            </a>
+                            <ul class="dropdown-menu-sp" id="btnMenu">
+                                <div class="li_parent adults">
+                                    <div class="minus_btn"><span> - </span></div>
+                                    <div class="num_parent"><span class="num" >0</span><span class="label"> {{__("Adults")}} </span></div>
+                                    <div class="positive_btn"><span>+</span></div>
+                                </div>
+                                <div class="li_parent children">
+                                    <div class="minus_btn"><span> - </span></div>
+                                    <div class="num_parent"><span class="num">0</span><span class="label"> {{__("Children")}} </span></div>
+                                    <div class="positive_btn"><span>+</span></div>
+                                </div>
+                            </ul>
+                        </div>
                         <div class="dropdown-info">!</div>
-                    </div>
+                        </div>
 
                     <div class="dropdown-parent text-input">
-                        <div class="dropdown-name">Nationality</div>
-                        <select class="form-select" aria-label="Default select example">
+                        <div class="dropdown-name">Country</div>
+                        <select class="form-select" aria-label="Default select example" name="countries_id" id="countries_id">
                             <option value="1" selected>Egypt</option>
-                            <option value="2">Phalastine</option>
+                            <option value="2">Palastine</option>
                             <option value="3">Saudi Arabia</option>
                         </select>
                         <div class="dropdown-info">!</div>
                     </div>
 
-                    <div class="flex-parent">
-                        <div class="dropdown-parent text-input">
-                            <div class="dropdown-name">Favourite Airlines</div>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="optional">
-                            <div class="dropdown-info">!</div>
-                        </div>
+                    <ul class="nav nav-pills mb-3 stars-list" id="pills-tab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true"><img class="empty-star" src="{{ asset('public/cms/assets/img/star.png') }}" alt="star"><img class="full-star" src="{{ asset('public/cms/assets/img/star (1).png') }}" alt="star"></button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><img class="empty-star" src="{{ asset('public/cms/assets/img/star.png') }}" alt="star"><img class="full-star" src="{{ asset('public/cms/assets/img/star (1).png') }}" alt="star"></button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><img class="empty-star" src="{{ asset('public/cms/assets/img/star.png') }}" alt="star"><img class="full-star" src="{{ asset('public/cms/assets/img/star (1).png') }}" alt="star"></button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><img class="empty-star" src="{{ asset('public/cms/assets/img/star.png') }}" alt="star"><img class="full-star" src="{{ asset('public/cms/assets/img/star (1).png') }}" alt="star"></button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false"><img class="empty-star" src="{{ asset('public/cms/assets/img/star.png') }}" alt="star"><img class="full-star" src="{{ asset('public/cms/assets/img/star (1).png') }}" alt="star"></button>
+                        </li>
+                    </ul>
 
-                        <button type="button" class="btn btn-primary">Search</button>
-                    </div>
+                    <button type="button" class="btn btn-primary">Search</button>
 
                     <div class="next-previous">
                         <div class="npbtn next-btn">Next</div>
@@ -438,7 +468,7 @@
                         </select>
                         <div class="dropdown-info">!</div>
                     </div> --}}
-                    
+
 
                     <ul class="nav nav-pills mb-3 stars-list" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -480,7 +510,7 @@
                         <div class="dropdown-name">Nationality</div>
                         <select class="form-select" aria-label="Default select example">
                             <option value="1" selected>Egypt</option>
-                            <option value="2">Phalastine</option>
+                            <option value="2">Palastine</option>
                             <option value="3">Saudi Arabia</option>
                         </select>
                         <div class="dropdown-info">!</div>

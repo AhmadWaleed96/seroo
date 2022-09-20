@@ -7,6 +7,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\CompaneController;
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FacilitieController;
+use App\Http\Controllers\FlightController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImageCarController;
 use App\Http\Controllers\ImageHotelController;
@@ -107,6 +108,9 @@ route::prefix('cms/admin/')->middleware('auth:admin')->group(function(){
 
     Route::resource('cars', CarController::class);
     Route::post('update_cars/{id}' , [CarController::class , 'update'])->name('update_cars');
+
+    Route::resource('flights', FlightController::class);
+    Route::post('update_flights/{id}' , [FlightController::class , 'update'])->name('update_flights');
 
     Route::resource('image_cars', ImageCarController::class);
     Route::post('update_image_cars/{id}' , [ImageCarController::class , 'update'])->name('update_image_cars');

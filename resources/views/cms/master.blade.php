@@ -437,6 +437,34 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                {{-- <i class="fas fa-city "></i> --}}
+                <i class="fa-solid fa-car nav-icon"></i>
+            <p>
+                الطائرات
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('flights.index')}}" class="nav-link">
+
+                    <i class="fas fa-desktop nav-icon"></i>
+                  <p>عرض الطائرات</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('flights.create')}}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+
+                  <p>اضافة طائرات </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <li class="nav-item">
             <a href="#" class="nav-link">
                 {{-- <i class="fas fa-city "></i> --}}
