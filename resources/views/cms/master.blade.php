@@ -372,6 +372,45 @@
               </li>
             </ul>
           </li>
+          {{-- <li class="nav-item">
+            <a href="#" class="nav-link">
+                <i class="fa-solid fa-users nav-icon"></i>
+            <p>
+                العناصر
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('item_hotels.index')}}" class="nav-link">
+
+                    <i class="fas fa-desktop nav-icon"></i>
+                  <p>عرض عناصر الفنادق</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('item_hotels.create')}}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+
+                  <p>اضافة عناصر للفنادق </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('packages.create')}}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+
+                  <p>عرض عناصر السيارات </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('packages.create')}}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+
+                  <p>اضافة عناصر لسيارات </p>
+                </a>
+              </li>
+            </ul>
+          </li> --}}
           <li class="nav-item">
             <a href="#" class="nav-link">
                 {{-- <i class="fas fa-city "></i> --}}

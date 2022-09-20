@@ -7,12 +7,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Book Hotel</title>
-        <link rel="stylesheet" href="{{ asset('cms/css/second_page.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/cms/css/second_page.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <link rel="stylesheet" href="{{ asset('cms/plugins/toastr/toastr.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('public/cms/plugins/toastr/toastr.min.css') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
@@ -112,27 +112,27 @@ img {
                 <form>
 
 
+                    @foreach ($item_hotels as $item )
                 <div class="header">
 
-                    <div class="header_price"><span class="coin">SAR</span><span class="price">75.4</span><div class="info">* شامل ضريبة القيمة المضافة</div></div>
+                    <div class="header_price"><span class="coin">SAR</span><span class="price">{{ $item->price }} <input type="hidden" name="price" id="price" value="{{ $item->price }}"></span><div class="info">* شامل ضريبة القيمة المضافة</div></div>
 
                 </div>
-                @foreach ($hotels as $hotel )
                 <div class="block"></div>
                 <div class="info2">السعر ل 1 سعر الغرف ل ليالي 12</div>
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">وقت الدخول *  </label>
-                    <input type="text" class="form-control" disabled name="date_of_arrival" id="date_of_arrival" value="{{ $hotel->checkin }}">
+                    <input type="text" class="form-control" disabled name="date_of_arrival" id="date_of_arrival" value="{{ $item->checkin }}">
 
                 </div>
                 <input type="hidden" name="hotel_id" id="hotel_id" value="{{$id}}">
                 <div class="mb-2">
                     <label for="exampleFormControlInput1" class="form-label"> عدد الغرف *</label>
-                     <input type="text" class="form-control" disabled name="number_of_room" id="number_of_room" value="{{ $hotel->number_of_room}}">
+                     <input type="text" class="form-control" disabled name="number_of_room" id="number_of_room" value="{{ $item->number_of_room}}">
                 </div>
                 <div class="mb-2 leave">
                     <label for="exampleFormControlInput1" class="form-label">  عدد المسافرين *</label>
-                     <input type="text" class="form-control" disabled name="number_of_people" id="number_of_people" value="{{ $hotel->number_of_people }}">
+                     <input type="text" class="form-control" disabled name="number_of_people" id="number_of_people" value="{{ $item->number_of_people }}">
                     </div>
 
 
@@ -147,7 +147,7 @@ img {
                     </div> --}}
                     <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">وقت المغادرة *</label>
-                        <input type="text" class="form-control" disabled name="departure_date" id="departure_date" value="{{ $hotel->checkout }}">
+                        <input type="text" class="form-control" disabled name="departure_date" id="departure_date" value="{{ $item->checkout }}">
                    {{-- <select class="form-select" aria-label="Default select example">
                         <option selected>حدد طلب السعر</option>
                         <option value="1">One</option>
@@ -167,7 +167,7 @@ img {
                     @foreach ($hotels as $hotel)
 
                     <div class="name_parent"><span class="name">{{ $hotel->name }}</span></div>
-                    <div class="phone"><span>(+966) 055 9148 410</span><i class="fas fa-phone"></i></div>
+                    <div class="phone"><span>{{ $hotel->mobile }}</span><i class="fas fa-phone"></i></div>
                     <div class="map">
                         <i class="fas fa-map-marker-alt"></i>
                         <span>
@@ -257,14 +257,14 @@ img {
         </div>
 
 
-        <script src="{{ asset('cms/js/second_page.js') }}"></script>
+        <script src="{{ asset('public/cms/js/second_page.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 
-        <script src="{{asset('cms/plugins/toastr/toastr.min.js')}}"></script>
-        <script src="{{asset('cms/js/crud.js')}}"></script>
+        <script src="{{asset('public/cms/plugins/toastr/toastr.min.js')}}"></script>
+        <script src="{{asset('public/cms/js/crud.js')}}"></script>
         <script>
 
 
@@ -277,9 +277,11 @@ img {
                     formData.append('number_of_room',document.getElementById('number_of_room').value);
                     formData.append('number_of_people',document.getElementById('number_of_people').value);
                     formData.append('hotel_id',document.getElementById('hotel_id').value);
+                    formData.append('price',document.getElementById('price').value);
+                    var APP_URL = {!! json_encode(url('/book_hotels')) !!}
 
 
-                store('/book_hotels',formData);
+                store(APP_URL,formData);
 
             }
 

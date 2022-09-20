@@ -69,8 +69,10 @@
                 <tr class="bg-info">
                   <th> رقم الفندق </th>
                   <th>  اسم الفندق  </th>
+                  <th>  رقم الموبايل  </th>
                   <th>  التقيم  </th>
                   <th>   العنوان</th>
+                  <th>   اضافة عناصر</th>
                   <th>   اضافة صورة</th>
                   <th>   اضافة مرافق</th>
                   <th>   اضافة غرفة</th>
@@ -83,6 +85,7 @@
                 <tr>
                   <td>{{$hotel->id}}</td>
                   <td>{{$hotel->name }}</td>
+                  <td>{{$hotel->mobile }}</td>
                   @if ( $hotel->rate  =='5')
                   <td><span class="text-warning"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></span></td>
                   @elseif ($hotel->rate  =='4')
@@ -100,6 +103,9 @@
 
                   <td>{{$hotel->address}}</td>
 
+                  <td ><a href="{{route('indexItem_hotel',['id'=>$hotel->id])}}"
+                    class="btn btn-danger btn-sm">({{$hotel->item_hotel_count}})
+                    العناصر</a> </td>
                   <td><a href="{{route('indexImage',['id'=>$hotel->id])}}"
                     class="btn btn-outline-danger btn-sm">({{$hotel->images_count}})
                     الصور</a> </td>

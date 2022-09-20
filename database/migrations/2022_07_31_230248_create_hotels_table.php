@@ -18,11 +18,12 @@ class CreateHotelsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->integer('rate');
-            $table->date('checkin');
-            $table->date('checkout');
-            $table->integer('number_of_room');
-            $table->integer('number_of_people')->nullable();
-            $table->integer('number_of_children')->nullable();
+            $table->string('mobile');
+            // $table->date('checkin');
+            // $table->date('checkout');
+            // $table->integer('number_of_room');
+            // $table->integer('number_of_people')->nullable();
+            // $table->integer('number_of_children')->nullable();
             $table->text('discreption')->nullable();
             $table->string('image')->nullable();
             $table->foreignId("city_id");

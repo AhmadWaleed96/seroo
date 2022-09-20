@@ -15,7 +15,7 @@ class HotelController extends Controller
      */
     public function index()
     {
-        $hotels=Hotel::withCount('images','facilitie','rooms')->orderBy("id",'desc')->paginate(5);
+        $hotels=Hotel::withCount('images','facilitie','rooms','item_hotel')->orderBy("id",'desc')->paginate(5);
         return response()->view('cms.hotel.index',compact('hotels'));
     }
 
@@ -66,11 +66,12 @@ class HotelController extends Controller
             $hotels->name=$request->get('name');
             $hotels->address=$request->get('address');
             $hotels->rate=$request->get('rate');
-            $hotels->checkin=$request->get('checkin');
-            $hotels->checkout=$request->get('checkout');
-            $hotels->number_of_room=$request->get('number_of_room');
-            $hotels->number_of_people=$request->get('number_of_people');
-            $hotels->number_of_children=$request->get('number_of_children');
+            $hotels->mobile=$request->get('mobile');
+            // $hotels->checkin=$request->get('checkin');
+            // $hotels->checkout=$request->get('checkout');
+            // $hotels->number_of_room=$request->get('number_of_room');
+            // $hotels->number_of_people=$request->get('number_of_people');
+            // $hotels->number_of_children=$request->get('number_of_children');
             $hotels->discreption=$request->get('discreption');
             $hotels->city_id=$request->get('city_id');
             $isSaved=$hotels->save();
@@ -149,11 +150,12 @@ class HotelController extends Controller
             $hotels->name=$request->get('name');
             $hotels->address=$request->get('address');
             $hotels->rate=$request->get('rate');
-            $hotels->checkin=$request->get('checkin');
-            $hotels->checkout=$request->get('checkout');
-            $hotels->number_of_room=$request->get('number_of_room');
-            $hotels->number_of_people=$request->get('number_of_people');
-            $hotels->number_of_children=$request->get('number_of_children');
+            $hotels->mobile=$request->get('mobile');
+            // $hotels->checkin=$request->get('checkin');
+            // $hotels->checkout=$request->get('checkout');
+            // $hotels->number_of_room=$request->get('number_of_room');
+            // $hotels->number_of_people=$request->get('number_of_people');
+            // $hotels->number_of_children=$request->get('number_of_children');
             $hotels->discreption=$request->get('discreption');
             $hotels->city_id=$request->get('city_id');
             $isSaved=$hotels->save();

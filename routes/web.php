@@ -10,6 +10,7 @@ use App\Http\Controllers\FacilitieController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImageCarController;
 use App\Http\Controllers\ImageHotelController;
+use App\Http\Controllers\ItemHotelController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PersonalController;
@@ -120,6 +121,11 @@ route::prefix('cms/admin/')->middleware('auth:admin')->group(function(){
     Route::resource('ways', WayController::class);
     Route::post('update_ways/{id}' , [WayController::class , 'update'])->name('update_ways');
 
+    Route::resource('item_hotels', ItemHotelController::class);
+    Route::post('update_item_hotels/{id}' , [ItemHotelController::class , 'update'])->name('update_item_hotels');
+        Route::get('/create/hotel-item/{id}', [ItemHotelController::class, 'createItem'])->name('createItem_hotel');
+    Route::get('/index/hotel-item/{id}', [ItemHotelController::class, 'indexItem'])->name('indexItem_hotel');
+
 
 
 
@@ -148,9 +154,9 @@ Route::prefix('/')->middleware('auth:web')->group(function(){
 
     Route::resource('book_hotels', BookHotelController::class);
     Route::post('book_hotels/{id}' , [BookHotelController::class , 'update'])->name('book_hotels');
-
-
     Route::get('/create/book-hotel/{id}', [BookHotelController::class, 'createBook'])->name('create-book-hotel');
+
+
 
 
 
@@ -162,10 +168,14 @@ Route::prefix('/')->middleware('auth:web')->group(function(){
 Route::prefix('/')->group(function(){
     Route::get('search-hotels' , [BookHotelController::class , 'search_hotel'])->name('search-hotels');
 
+
     // Route::get('get',function()
     // {
 
-    //     $hotels=App\Models\Hotel::withCount("rooms")->count();
-    //      return dd($hotels);
+    //     $hotels=App\Models\Hotel::with('city')->where('number_of_children', 'like', '%' . 5 . '%')->select('city_id')->get();
+    //     return response()->view('dd',compact('hotels'));
+    //     // foreach( $hotels as $hotel){
+    //     // // return dd($hotel) ;
+    //     // }
     // });
 });

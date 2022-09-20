@@ -324,14 +324,23 @@
                     </div>
 
                 </div>
-                <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+                {{-- <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0"> --}}
+                    <form action="{{ route("search-hotels") }}" onsubmit="people1(),room1(),children1()" class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
 
                     <div class="dropdown-parent text-input">
-                        <div class="dropdown-name">Nationality</div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>Egypt</option>
-                            <option value="2">Phalastine</option>
-                            <option value="3">Saudi Arabia</option>
+                        <?php
+            use App\Models\City;
+            $cities=City::all();
+            ?>
+                        <div class="dropdown-name">City </div>
+                        <select class="form-select" aria-label="Default select example" name="city_id" @if( request()->city_id) value={{request()->city->name}} @endif>
+                            <option >select on </option>
+                            @foreach ($cities as $city )
+
+                            <option value="{{ $city->id }}" >{{ $city->name }}</option>
+                            @endforeach
+                            {{-- <option value="2">Phalastine</option>
+                            <option value="3">Saudi Arabia</option> --}}
                         </select>
                         <div class="dropdown-info">!</div>
                     </div>
@@ -340,18 +349,18 @@
                         <div class="datepicker input-daterange input-group" id="hotel-date">
                             <div class="datepicker-parent start">
                                 <div class="dropdown-name">Start Date</div>
-                                <input type="button" class="input-sm form-control" value="📅 From" name="start">
+                                <input type="text" class="input-sm form-control"  name="checkin">
                                 <div class="dropdown-info">!</div>
                             </div>
                             <div class="datepicker-parent end">
                                 <div class="dropdown-name">End Date</div>
-                                <input type="button" class="input-sm form-control" value="📅 To" name="end">
+                                <input type="text" class="input-sm form-control"  name="checkout" >
                                 <div class="dropdown-info">!</div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="dropdown-parent text-input">
+                    {{-- <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Nights</div>
                         <select class="form-select" aria-label="Default select example">
                             <option value="1" selected>1 night</option>
@@ -359,19 +368,68 @@
                             <option value="3">3 nights</option>
                         </select>
                         <div class="dropdown-info">!</div>
+                    </div> --}}
+                    <div class="dropdown-parent text-input">
+                    <div class="dropdown col-12 col-sm-12 col-md-6 col-lg-3">
+                        <div class="dropdown-name">Details</div>
+                        <a class="btn btn-secondary dropdown-toggle-sp form-control w-100">
+
+                            <input type="text" hidden id="input1"  name='number_of_people' @if( request()->number_of_people) value={{request()->number_of_people}} @endif >
+                            <input type="text" hidden id="input2"  name='number_of_room' @if( request()->number_of_room) value={{request()->number_of_room}} @endif >
+                            <input type="text" hidden id="input3"  name='number_of_children' @if( request()->number_of_children) value={{request()->number_of_children}} @endif >
+
+                            <span class="adults_num" id="number_of_people">0</span> {{__("Adults")}} <span class="children_num" id='number_of_children'>0</span> {{__("Children")}} <span class="rooms_num" id='number_of_room'>0</span> {{__("Rooms")}}
+                            <script>
+                                function people1() {
+                                    let people=document.querySelector('#number_of_people');
+                                    let input1=document.querySelector('#input1');
+                                    return input1.value=people.innerHTML;
+                                }
+                                function room1() {
+                                    let room=document.querySelector('#number_of_room');
+                                    let input2=document.querySelector('#input2');
+                                    return input2.value=room.innerHTML;
+                                }
+                                function children1() {
+                                    let children=document.querySelector('#number_of_children');
+                                    let input3=document.querySelector('#input3');
+                                    return input3.value=children.innerHTML;
+                                }
+                            </script>
+                        </a>
+                        <ul class="dropdown-menu-sp" id="btnMenu">
+                            <div class="li_parent adults">
+                                <div class="minus_btn"><span> - </span></div>
+                                <div class="num_parent"><span class="num" >0</span><span class="label"> {{__("Adults")}} </span></div>
+                                <div class="positive_btn"><span>+</span></div>
+                            </div>
+                            <div class="li_parent children">
+                                <div class="minus_btn"><span> - </span></div>
+                                <div class="num_parent"><span class="num">0</span><span class="label"> {{__("Children")}} </span></div>
+                                <div class="positive_btn"><span>+</span></div>
+                            </div>
+                            <div class="li_parent rooms">
+                                <div class="minus_btn"><span> - </span></div>
+                                <div class="num_parent"><span class="num">0</span><span class="label"> {{__("Rooms")}} </span></div>
+                                <div class="positive_btn"><span>+</span></div>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="dropdown-info">!</div>
                     </div>
 
-                    <div class="dropdown-parent text-input">
+                    {{-- <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Rooms</div>
+                        <input type="text" class="form-control" style="width: 100px" >
                         <select class="form-select" aria-label="Default select example">
                             <option value="1" selected>1 persons 1 room</option>
                             <option value="2">2 persons 1 room</option>
                             <option value="3">2 persons 2 room</option>
                         </select>
                         <div class="dropdown-info">!</div>
-                    </div>
+                    </div> --}}
 
-                    <div class="dropdown-parent text-input">
+                    {{-- <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Mark up</div>
                         <select class="form-select" aria-label="Default select example">
                             <option value="1" selected>mark %</option>
@@ -379,7 +437,8 @@
                             <option value="3">mark %</option>
                         </select>
                         <div class="dropdown-info">!</div>
-                    </div>
+                    </div> --}}
+                    
 
                     <ul class="nav nav-pills mb-3 stars-list" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -406,14 +465,15 @@
                         </li>
                     </ul>
 
-                    <button type="button" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-primary d-block">Search</button>
 
                     <div class="next-previous">
                         <div class="npbtn next-btn">Next</div>
                         <div class="npbtn previous-btn">Previous</div>
                     </div>
+                    </form>
 
-                </div>
+                {{-- </div> --}}
                 <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">
 
                     <div class="dropdown-parent text-input">
