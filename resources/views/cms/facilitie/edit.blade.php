@@ -28,7 +28,7 @@
 
                       <br>
                       <div class="row">
-                        
+
                         <div class="card-body">
                             <div  class="row">
                               <div class="form-group col-md-12">
@@ -36,13 +36,13 @@
                                 <textarea class="form-control" name="discription"  rows="3" id="discription" placeholder="Enter ..."> {{ $Facilitie->discription }}</textarea>
                               </div>
                             <input type="text" hidden id="hotel_id" name="hotel_id" value="{{ $id }}" />
-                              
+
                             </div>
                             <div class="table table-striped files" id="previews">
-                              
+
                             </div>
                           </div>
-                            
+
                         </div>
                       </div>
 
@@ -79,7 +79,10 @@
         let formData = new FormData();
             formData.append('hotel_id',document.getElementById('hotel_id').value);
             formData.append('discription',document.getElementById('discription').value);
-            storeRoute('/cms/admin/update_facilitie/'+id,formData);
+            //storeRoute('/cms/admin/update_facilitie/'+id,formData);
+
+            var APP_URL = {!! json_encode(url('/cms/admin/update_facilitie')) !!}
+        storeRoute( APP_URL+'/'+id ,formData);
 
     }
 

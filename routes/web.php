@@ -5,12 +5,15 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BookHotelController;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\CompaneController;
+use App\Http\Controllers\CountryController;
 use App\Http\Controllers\FacilitieController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ImageCarController;
 use App\Http\Controllers\ImageHotelController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PersonalController;
+use App\Http\Controllers\presonalController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\RolePermissionController;
 use App\Http\Controllers\RoomController;
@@ -69,6 +72,9 @@ route::prefix('cms/admin/')->middleware('auth:admin')->group(function(){
     Route::resource('cities', CityController::class);
     Route::post('update_cities/{id}' , [CityController::class , 'update'])->name('update_cities');
 
+    Route::resource('countries', CountryController::class);
+    Route::post('update_countries/{id}' , [CountryController::class , 'update'])->name('update_countries');
+
     Route::resource('packages', PackageController::class);
     Route::post('update_packages/{id}' , [PackageController::class , 'update'])->name('update_packages');
 
@@ -80,6 +86,10 @@ route::prefix('cms/admin/')->middleware('auth:admin')->group(function(){
 
     Route::resource('hotels', HotelController::class);
     Route::post('update_hotels/{id}' , [HotelController::class , 'update'])->name('update_hotels');
+
+    Route::resource('personals', PersonalController::class);
+    Route::post('update_personals/{id}' , [PersonalController::class , 'update'])->name('update_personals');
+
 
     Route::resource('image_hotels', ImageHotelController::class);
     Route::post('update_image_hotels/{id}' , [ImageHotelController::class , 'update'])->name('update_image_hotels');
@@ -126,6 +136,7 @@ Route::prefix( LaravelLocalization::setLocale())->group(function(){
     Route::get('', function () {return view('front_end.main');})->name('home');
     Route::get('b2c', function () {return view('front_end.b2c');})->name('b2c');
     Route::get('local', function () {return view('front_end.local');})->name('local');
+    Route::get('package', function () {return view('front_end.package');})->name('package');
 });
 
 

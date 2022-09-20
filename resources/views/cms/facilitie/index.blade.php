@@ -30,7 +30,7 @@
                 <tr class="bg-danger">
                   <th> رقم المرافق </th>
                   <th>   الوصف </th>
-                  
+
                   <th> الاعدادات </th>
                 </tr>
               </thead>
@@ -43,7 +43,7 @@
                       عرض
                       </a>
                   </td>
-                  
+
 
                   <td>
                     <div class="btn-group">
@@ -86,7 +86,10 @@
  <script>
   function performDestroy(id, reference){
     let url = '/cms/admin/facilitie/'+id;
-    confirmDestroy(url, reference);
+    //confirmDestroy(url, reference);
+
+    var APP_URL = {!! json_encode(url('/cms/admin/facilitie')) !!}
+    confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

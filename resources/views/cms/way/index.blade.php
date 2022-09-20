@@ -37,7 +37,7 @@
                 @foreach ($ways as $way )
                 <tr>
                   <td>{{$way->id}}</td>
-                  
+
                   <td>{{$way->name_way}}</td>
 
                   <td>
@@ -80,8 +80,11 @@
 
  <script>
   function performDestroy(id, reference){
-    let url = '/cms/admin/ways/'+id;
-    confirmDestroy(url, reference);
+    //let url = '/cms/admin/ways/'+id;
+    //confirmDestroy(url, reference);
+
+    var APP_URL = {!! json_encode(url('/cms/admin/ways')) !!}
+    confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

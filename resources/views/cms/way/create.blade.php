@@ -71,8 +71,10 @@
 
         let formData = new FormData();
             formData.append('name_way',document.getElementById('name_way').value);
+
             var APP_URL = {!! json_encode(url('/cms/admin/ways')) !!}
         store( APP_URL ,formData);
+
         //store('/cms/admin/ways',formData);
 
     }

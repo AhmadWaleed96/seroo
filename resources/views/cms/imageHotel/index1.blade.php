@@ -67,8 +67,11 @@
 
  <script>
   function performDestroy(id, reference){
-    let url = '/cms/admin/image_hotels/'+id;
-    confirmDestroy(url, reference);
+    //let url = '/cms/admin/image_hotels/'+id;
+    //confirmDestroy(url, reference);
+
+    var APP_URL = {!! json_encode(url('/cms/admin/image_hotels')) !!}
+    confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

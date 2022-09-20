@@ -112,63 +112,63 @@
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">First Name</div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ali">
+                        <input type="email" class="form-control" id="first-name" aria-describedby="emailHelp" placeholder="Ali">
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
-                        <div class="dropdown-name">Second Name</div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kamal">
+                        <div class="dropdown-name">Last Name</div>
+                        <input type="email" class="form-control" id="last-name" aria-describedby="emailHelp" placeholder="Kamal">
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Email</div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="sero@gmail.com">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="sero@gmail.com">
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Phone Number</div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="0155 552 8003">
+                        <input type="email" class="form-control" id="phone" aria-describedby="emailHelp" placeholder="0155 552 8003">
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">2nd Phone Number</div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="optional">
+                        <input type="email" class="form-control" id="phone2" aria-describedby="emailHelp" placeholder="optional">
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Country</div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>Egypt</option>
+                        <select class="form-select" aria-label="Default select example" id="country">
+                            <option value="1" selected>Saudi Arabia</option>
                             <option value="2">Phalastine</option>
-                            <option value="3">Saudi Arabia</option>
+                            <option value="3">Egypt</option>
                         </select>
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">City</div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>Cairo</option>
-                            <option value="2">Ghaza</option>
-                            <option value="3">Riayadh</option>
+                        <select class="form-select" aria-label="Default select example" id="city">
+                            <option value="1" selected>Riayadh</option>
+                            <option value="2">Gaza</option>
+                            <option value="3">Cairo</option>
                         </select>
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Address</div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="7st Riyadh Elsham, Emarg, Cairo">
+                        <input type="email" class="form-control" id="address" aria-describedby="emailHelp" placeholder="7st Riyadh Elsham, Emarg, Cairo">
                         <div class="dropdown-info">!</div>
                     </div>
 
                     <div class="dropdown-parent text-input">
                         <div class="dropdown-name">Postal Code</div>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="code" aria-describedby="emailHelp">
                         <div class="dropdown-info">!</div>
                     </div>
 
@@ -176,12 +176,12 @@
                         <div class="datepicker input-daterange input-group" id="start-end">
                             <div class="datepicker-parent start">
                                 <div class="dropdown-name">Start Date</div>
-                                <input type="button" class="input-sm form-control" value="📅 From" name="start">
+                                <input type="button" class="input-sm form-control" value="📅 From" name="start" id="start">
                                 <div class="dropdown-info">!</div>
                             </div>
                             <div class="datepicker-parent end">
                                 <div class="dropdown-name">End Date</div>
-                                <input type="button" class="input-sm form-control" value="📅 To" name="end">
+                                <input type="button" class="input-sm form-control" value="📅 To" name="end" id="end">
                                 <div class="dropdown-info">!</div>
                             </div>
                         </div>
@@ -238,10 +238,13 @@
                         <div class="dropdown-info">From 0 to 2 years</div>
                     </div>
 
+                    <button type="button" class="btn btn-primary">Create</button>
+
                     <div class="next-previous">
                         <div class="npbtn next-btn">Next</div>
                         <div class="npbtn previous-btn" disabled>Previous</div>
                     </div>
+
 
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
@@ -301,16 +304,6 @@
                             <option value="1" selected>Egypt</option>
                             <option value="2">Phalastine</option>
                             <option value="3">Saudi Arabia</option>
-                        </select>
-                        <div class="dropdown-info">!</div>
-                    </div>
-
-                    <div class="dropdown-parent text-input">
-                        <div class="dropdown-name">mark</div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>mark %</option>
-                            <option value="2">mark %</option>
-                            <option value="3">mark %</option>
                         </select>
                         <div class="dropdown-info">!</div>
                     </div>
@@ -487,17 +480,6 @@
 
                         </div>
 
-                    </div>
-
-
-                    <div class="dropdown-parent text-input">
-                        <div class="dropdown-name">Mark up</div>
-                        <select class="form-select" aria-label="Default select example">
-                            <option value="1" selected>mark %</option>
-                            <option value="2">mark %</option>
-                            <option value="3">mark %</option>
-                        </select>
-                        <div class="dropdown-info">!</div>
                     </div>
 
                     <button type="button" class="btn btn-primary">Search</button>

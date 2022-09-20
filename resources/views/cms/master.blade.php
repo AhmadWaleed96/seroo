@@ -319,6 +319,32 @@
         </li>
       </ul>
     </li>
+
+    <li class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="fas fa-city nav-icon"></i>
+        <p>
+            الدول
+            <i class="fas fa-angle-left right"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="{{route('countries.index')}}" class="nav-link">
+
+                <i class="fas fa-desktop nav-icon"></i>
+              <p>عرض الدول</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('countries.create')}}" class="nav-link">
+                <i class="fas fa-plus nav-icon"></i>
+
+              <p>اضافة دولة </p>
+            </a>
+          </li>
+        </ul>
+      </li>
           <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
             <a href="#" class="nav-link">
@@ -394,6 +420,32 @@
                     <i class="fas fa-plus nav-icon"></i>
 
                   <p>اضافة فندق </p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+                {{-- <i class="fas fa-city "></i> --}}
+                <i class="fa-solid fa-car nav-icon"></i>
+            <p>
+                التأمين
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('personals.index')}}" class="nav-link">
+
+                    <i class="fas fa-desktop nav-icon"></i>
+                  <p>عرض التأمين</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('personals.create')}}" class="nav-link">
+                    <i class="fas fa-plus nav-icon"></i>
+
+                  <p>اضافة تأمين </p>
                 </a>
               </li>
             </ul>

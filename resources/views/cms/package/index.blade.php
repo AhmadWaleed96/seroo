@@ -100,8 +100,11 @@
 
  <script>
   function performDestroy(id, reference){
-    let url = '/cms/admin/packages/'+id;
-   confirmDestroy(url, reference);
+    //let url = '/cms/admin/packages/'+id;
+   //confirmDestroy(url, reference);
+
+   var APP_URL = {!! json_encode(url('/cms/admin/packages')) !!}
+    confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

@@ -28,7 +28,7 @@
 
                       <br>
                       <div class="row">
-                        
+
                         <div class="card-body">
                             <div  class="row">
                               <div class="col-lg-6 d-flex"  >
@@ -38,20 +38,20 @@
                                     <i class="fas fa-plus"></i>
                                     <span>Add Image</span>
                                   </span>
-                                  
+
                                 </div>
                                 <div class="form-control mt-3"> Value :<span id="value" class="text-danger text-bold"></span></div>
                                </label>
                             </div>
                             <input type="file" hidden id="image" name="image"  multiple  oninput="input()">
                             <input type="text" hidden id="hotel_id" name="hotel_id" value="{{ $id }}" />
-                              
+
                             </div>
                             <div class="table table-striped files" id="previews">
-                              
+
                             </div>
                           </div>
-                            
+
                         </div>
                       </div>
 
@@ -88,7 +88,10 @@
         let formData = new FormData();
             formData.append('hotel_id',document.getElementById('hotel_id').value);
             formData.append('image',document.getElementById('image').files[0]);
-        store('/cms/admin/image_hotels',formData);
+        //store('/cms/admin/image_hotels',formData);
+
+        var APP_URL = {!! json_encode(url('/cms/admin/image_hotels')) !!}
+        store( APP_URL ,formData);
 
     }
 

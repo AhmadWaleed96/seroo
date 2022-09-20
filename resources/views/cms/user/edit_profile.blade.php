@@ -159,7 +159,7 @@ let formData = new FormData();
            formData.append('new_password',document.getElementById('new_password').value);
            formData.append('new_password_confirmation',document.getElementById('new_password_confirmation').value);
            var APP_URL = {!! json_encode(url('/password/update')) !!}
-           store( APP_URL ,formData);
+           storeRoute( APP_URL ,formData);
 
            //store('/password/update',formData);
 

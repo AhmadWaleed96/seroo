@@ -36,7 +36,7 @@
                         </div>
 
                         <div class="form-group col-md-4">
-                            <label for="number_room"> رقم الغرفة</label> 
+                            <label for="number_room"> رقم الغرفة</label>
                             <input type="text" name="number_room" class="form-control" id="number_room" value="{{ $rooms->number_room }}"
                                 placeholder="ادخل رقم الغرفة ">
                         </div>
@@ -61,10 +61,10 @@
                             <label for="hotel_id">الفنادق</label>
                             <select type="text" name="hotel_id" class="form-control" id="hotel_id">
                                 @foreach ($hotels as  $hotel)
-                                    
+
                                 <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
                                 @endforeach
-                                
+
                             </select>
                         </div>
                         <div class="form-group col-md-12">
@@ -111,7 +111,10 @@
         formData.append('accommodation_type',document.getElementById('accommodation_type').value);
         formData.append('hotel_id',document.getElementById('hotel_id').value);
         formData.append('price',document.getElementById('price').value);
-    storeRoute('/cms/admin/update_rooms/'+id , formData );
+    //storeRoute('/cms/admin/update_rooms/'+id , formData );
+
+    var APP_URL = {!! json_encode(url('/cms/admin/update_rooms')) !!}
+        storeRoute( APP_URL+'/'+id ,formData);
     }
     </script>
 

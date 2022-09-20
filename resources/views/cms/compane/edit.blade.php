@@ -35,7 +35,7 @@
                                    value="{{ $companes->name }}" placeholder="أدخل الاسم الشركة">
                             </div>
 
-                            
+
                         </div>
 
                           <br>
@@ -69,7 +69,10 @@
     function performUpdate(id){
     let formData = new FormData();
     formData.append('name' , document.getElementById('name').value);
-    storeRoute('/cms/admin/update_companes/'+id , formData );
+    //storeRoute('/cms/admin/update_companes/'+id , formData );
+
+    var APP_URL = {!! json_encode(url('/cms/admin/update_companes')) !!}
+        storeRoute( APP_URL+'/'+id ,formData);
     }
     </script>
 

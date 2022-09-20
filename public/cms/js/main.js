@@ -1,26 +1,26 @@
-$(function(){
+$(function() {
 
-    $(document).on("mouseover", ".packages .package", function(){
+    $(document).on("mouseover", ".packages .package", function() {
 
         $(this).addClass("hover");
 
     });
 
-    $(document).on("mouseout", ".packages .package", function(){
+    $(document).on("mouseout", ".packages .package", function() {
 
         $(this).removeClass("hover");
 
     });
 
-    $(document).on("click", ".package-block .package-close", function(){
+    $(document).on("click", ".package-block .package-close", function() {
 
         $(".pack-block-parent").removeClass("active");
 
     });
 
-    $(document).on("click", ".packages .package", function(){
+    $(document).on("click", ".packages .package", function() {
 
-        $(".pack-block-parent").addClass("active");
+        $("../../../resources/views/front_end/package.blade.php").addClass("active");
 
     });
 

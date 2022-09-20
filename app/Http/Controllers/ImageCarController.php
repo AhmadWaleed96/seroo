@@ -11,18 +11,18 @@ class ImageCarController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     * 
-     * 
+     *
+     *
      */
     public function indexImage($id)
     {
         $images=ImageCar::where('car_id', $id)->orderBy('created_at', 'desc')->paginate(4);
-        return response()->view('cms.imageCar.show', compact('images','id'));
+        return response()->view('cms.imageCar.index1', compact('images','id'));
     }
 
     public function createImage($id)
     {
-        
+
           return response()->view('cms.imageCar.create', compact('id'));
     }
 

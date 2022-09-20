@@ -39,7 +39,7 @@
                 <tr>
                   <td>{{$image->id}}</td>
                   <td>
-                    <img class="img-circle img-bordered-sm" src="{{asset('public/storage/image_car/'.$image->image)}}" width="60" height="60" alt="User Image">
+                    <img class="img-circle img-bordered-sm" src="{{asset('public/storage/image_car/'.$image->image)}}" width="60px" height="60px" alt="User Image">
                   </td>
 
                   <td>
@@ -82,8 +82,11 @@
 
  <script>
   function performDestroy(id, reference){
-    let url = '/cms/admin/image_cars/'+id;
-    confirmDestroy(url, reference);
+    //let url = '/cms/admin/image_cars/'+id;
+    //confirmDestroy(url, reference);
+
+    var APP_URL = {!! json_encode(url('/cms/admin/image_cars')) !!}
+    confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

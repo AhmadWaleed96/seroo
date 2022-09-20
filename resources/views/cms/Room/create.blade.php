@@ -62,10 +62,10 @@
                                 <label for="hotel_id">الفنادق</label>
                                 <select type="text" name="hotel_id" class="form-control" id="hotel_id">
                                     @foreach ($hotels as  $hotel)
-                                        
+
                                     <option value="{{ $hotel->id }}">{{ $hotel->name }}</option>
                                     @endforeach
-                                    
+
                                 </select>
                             </div> --}}
                             <input type="text" id="hotel_id" name="hotel_id" value="{{ $id }}" hidden >
@@ -114,7 +114,10 @@
             formData.append('accommodation_type',document.getElementById('accommodation_type').value);
             formData.append('hotel_id',document.getElementById('hotel_id').value);
             formData.append('price',document.getElementById('price').value);
-        store('/cms/admin/rooms',formData);
+        //store('/cms/admin/rooms',formData);
+
+        var APP_URL = {!! json_encode(url('/cms/admin/rooms')) !!}
+        store( APP_URL ,formData);
 
     }
 

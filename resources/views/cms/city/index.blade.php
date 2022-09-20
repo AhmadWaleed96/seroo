@@ -85,8 +85,11 @@
 
  <script>
   function performDestroy(id, reference){
-    let url = '/cms/admin/cities/'+id;
-    confirmDestroy(url, reference);
+    //let url = '/cms/admin/cities/'+id;
+    //confirmDestroy(url, reference);
+
+    var APP_URL = {!! json_encode(url('/cms/admin/cities')) !!}
+    confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

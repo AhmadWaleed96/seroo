@@ -768,27 +768,27 @@ a {
     align-items: center;
 }
 
-.package-block .background-image {
+.background-image {
     position: relative;
     width: 100%;
     height: 400px;
 }
 
-.package-block .background-image img {
+.background-image img {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.package-block .background-image .bi-cover {
+.background-image .bi-cover {
     position: absolute;
     width: 100%;
     height: 100%;
     background-image: linear-gradient(to top, #494a55 0%, transparent 75%);
 }
 
-.package-block .package-close {
+.package-close {
     position: absolute;
     right: 0;
     left: unset;
@@ -803,11 +803,11 @@ a {
     transition: .3s;
 }
 
-.package-block .package-close:hover {
+.package-close:hover {
     background-color: #404048;
 }
 
-.package-block .background-image .package-bottom {
+.background-image .package-bottom {
     position: absolute;
     display: flex;
     width: 100%;
@@ -821,7 +821,7 @@ a {
     align-items: center;
 }
 
-.package-block .background-image .bi-desc {
+.background-image .bi-desc {
     position: relative;
     color: aliceblue;
     background-color: rgb(0 0 0 / 50%);
@@ -829,7 +829,7 @@ a {
     border-radius: 7px;
 }
 
-.package-block .background-image .package-price {
+.background-image .package-price {
     position: absolute;
     top: 25px;
     left: 40px;
@@ -840,7 +840,7 @@ a {
     font-weight: 500;
 }
 
-.package-block .background-image .pdt-parent {
+.background-image .pdt-parent {
     position: relative;
     display: flex;
     flex-direction: row;
@@ -851,7 +851,7 @@ a {
     gap: 10px;
 }
 
-.package-block .background-image .package-duration {
+.background-image .package-duration {
     position: relative;
     color: #ab8824;
     background-color: rgb(255 255 255 / 85%);
@@ -862,7 +862,7 @@ a {
     font-weight: 600;
 }
 
-.package-block .background-image .start-package-date {
+.background-image .start-package-date {
     position: relative;
     color: #304689;
     background-color: rgb(255 255 255 / 85%);
@@ -872,7 +872,7 @@ a {
     box-shadow: 0 1px 15px rgb(29 30 33 / 75%);
 }
 
-.package-block .package-content {
+.package-content {
     position: relative;
     width: 100%;
     display: flex;
@@ -886,14 +886,14 @@ a {
     padding-bottom: 25px;
 }
 
-.package-block .package-content .package-name {
+.package-content .package-name {
     position: relative;
     font-size: 60px;
     color: #c6cfdc;
     font-family: 'Tajawal', sans-serif;
 }
 
-.package-block .package-content .package-info {
+.package-content .package-info {
     position: relative;
     display: flex;
     color: #c7c7c7;
@@ -906,7 +906,7 @@ a {
     gap: 20px;
 }
 
-.package-block .package-content .ticket-btn-parent {
+.package-content .ticket-btn-parent {
     position: relative;
     width: 100%;
     display: flex;
@@ -917,7 +917,7 @@ a {
     flex-direction: row;
 }
 
-.package-block .package-content .buy-ticket-btn {
+.package-content .buy-ticket-btn {
     position: relative;
     padding: 7px 25px;
     border-radius: 6px;
@@ -929,7 +929,7 @@ a {
     transition: .25s;
 }
 
-.package-block .package-content .buy-ticket-btn:hover {
+.package-content .buy-ticket-btn:hover {
     background-color: #435ddb;
 }
 
@@ -1106,8 +1106,8 @@ a {
 .part4 .services .service {
     position: relative;
     display: flex;
-    width: 260px;
-    height: 230px;
+    width: 300px;
+    height: 320px;
     background-color: #f7f7f7;
     border-radius: 10px;
     box-shadow: -1px 2px 15px 2px #3b404b05;
@@ -1119,12 +1119,13 @@ a {
     padding: 25px;
     font-family: 'Tajawal', sans-serif;
     text-align: center;
+    overflow: hidden;
 }
 
 .part4 .services .service img {
     position: relative;
     height: 70px;
-    margin: 22px;
+    margin: 15px;
 }
 
 .part4 .services .service .service-name {

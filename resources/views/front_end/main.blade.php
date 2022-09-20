@@ -203,42 +203,6 @@
             </div>
         </div>
 
-        <div class="pack-block-parent">
-            <div class="package-block">
-                <div class="pl-overscroll">
-                    <div class="background-image">
-                        <img src="{{ asset('public/cms/assets/img/riyadh.jpg') }}">
-                        <div class="bi-cover"></div>
-                        <div class="package-close">X</div>
-                        <div class="package-price">$ 450</div>
-                        <div class="package-bottom">
-                            <div class="bi-desc">entertainment</div>
-                            <div class="pdt-parent">
-                                <div class="package-duration">5 days</div>
-                                <div class="start-package-date">05 Octoper 2022</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="package-content">
-
-                        <div class="package-content-text">
-                            <div class="package-name">Riyadh</div>
-
-                            <div class="package-info">
-                                <span>Boulevard Riyadh City is one of the biggest zones in the season. Triple in size this year, each of the sub-areas features its own set of activities, restaurants, events, and outlets that are catered to all visitor.</span>
-                                <span>It is the largest city on the Arabian Peninsula, and receives around 5 million tourists each year, making it the 49th most visited city in the world and the 6th in the Middle East. Riyadh had a population of 7.6 million people in 2019, making it the most-populous city in Saudi Arabia, 3rd most populous in the Middle East, and 38th most populous in Asia .</span>
-                            </div>
-                        </div>
-
-                        <div class="ticket-btn-parent">
-                            <div class="buy-ticket-btn">Buy Tickets</div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
 

@@ -78,8 +78,10 @@
         let formData = new FormData();
         formData.append('guard_name',document.getElementById('guard_name').value);
             formData.append('name',document.getElementById('name').value);
-        store('/cms/admin/roles',formData);
+        //store('/cms/admin/roles',formData);
 
+        var APP_URL = {!! json_encode(url('/cms/admin/roles')) !!}
+        store( APP_URL ,formData);
     }
 
 </script>

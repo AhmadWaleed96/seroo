@@ -121,6 +121,7 @@ class UserAuthController extends Controller
             $admins->salary_value=$request->get('salary_value');
             $admins->city_id=$request->get('city_id');
             $isSaved=$admins->save();
+            return ['redirect' =>route('main')];
             if ($isSaved) {
                 return response()->json(['icon'=>'success','title'=>'تم تعديل صفحتك بنجاح '],200);
             }elseif(!$isSaved){

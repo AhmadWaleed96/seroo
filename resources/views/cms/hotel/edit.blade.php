@@ -172,7 +172,10 @@ $('.city_id').select2({
             formData.append('number_of_people',document.getElementById('number_of_people').value);
             formData.append('number_of_children',document.getElementById('number_of_children').value);
 
-            storeRoute('/cms/admin/update_hotels/'+id , formData );
+            //storeRoute('/cms/admin/update_hotels/'+id , formData );
+
+            var APP_URL = {!! json_encode(url('/cms/admin/update_hotels')) !!}
+        storeRoute( APP_URL+'/'+id ,formData);
 
     }
 

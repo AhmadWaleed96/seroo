@@ -35,7 +35,7 @@
                                    value="{{ $ways->name_way }}" placeholder="أدخل الاسم الطريق">
                             </div>
 
-                            
+
                         </div>
 
                           <br>
@@ -70,6 +70,9 @@
     let formData = new FormData();
     formData.append('name_way' , document.getElementById('name_way').value);
     storeRoute('/cms/admin/update_ways/'+id , formData );
+
+    var APP_URL = {!! json_encode(url('/cms/admin/update_ways')) !!}
+        storeRoute( APP_URL+'/'+id ,formData);
     }
     </script>
 

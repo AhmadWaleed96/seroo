@@ -96,7 +96,7 @@
                         @else
                         <td><span class="badge bg-danger">not found</span></td>
                   @endif
-                 
+
 
                   <td>{{$hotel->address}}</td>
 
@@ -108,7 +108,7 @@
                     class="btn btn-outline-success btn-sm">({{$hotel->facilitie_count}})
                     مرافق</a> </td>
 
-                  
+
 
                   <td ><a href="{{route('indexRoom',['id'=>$hotel->id])}}"
                     class="btn btn-outline-warning btn-sm">({{$hotel->rooms_count}})
@@ -116,7 +116,7 @@
                     <td>
                         <div class="btn-group">
                             <a href="{{route('hotels.edit',$hotel->id)}}" class="btn btn-info" title="Edit"><i class="fa-solid fa-pen-to-square nav-icon"></i></a>
-                                <a href="#" onclick="performDestroy({{$hotel->id}}, this)" class="btn btn-danger" title="Delete"><i class="fa-solid fa-trash nav-icon"></i></a>  
+                                <a href="#" onclick="performDestroy({{$hotel->id}}, this)" class="btn btn-danger" title="Delete"><i class="fa-solid fa-trash nav-icon"></i></a>
                           <div class="btn-group">
                             <button type="button" class="btn btn-success dropdown-toggle dropdown-icon" data-toggle="dropdown" aria-expanded="false">
                             </button>
@@ -126,7 +126,7 @@
                           </div>
                         </div>
                       </td>
-                    
+
                 </tr>
                 @endforeach
               </tbody>
@@ -151,8 +151,11 @@
 
  <script>
   function performDestroy(id, reference){
-    let url = '/cms/admin/hotels/'+id;
-   confirmDestroy(url, reference);
+    //let url = '/cms/admin/hotels/'+id;
+   //confirmDestroy(url, reference);
+
+   var APP_URL = {!! json_encode(url('/cms/admin/hotels')) !!}
+    confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

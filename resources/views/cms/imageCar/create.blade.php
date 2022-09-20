@@ -60,7 +60,7 @@
                       <!-- /.card-body -->
                       <div class="card-footer">
                           <button type="button" onclick="performStore()" class="btn btn-lg btn-warning">حفظ</button>
-                         <a href="{{route('create.image-cars',$id)}}"><button type="button" class="btn btn-lg btn-danger"> قائمة الصور</button></a>
+                         <a href="{{route('indexImage',$id)}}"><button type="button" class="btn btn-lg btn-danger"> قائمة الصور</button></a>
                       </div>
                   </form>
               </div>

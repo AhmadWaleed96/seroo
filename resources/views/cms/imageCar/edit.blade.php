@@ -28,7 +28,7 @@
 
                       <br>
                       <div class="row">
-                        
+
                         <div class="card-body">
                             <div  class="row">
                               <div class="col-lg-6 d-flex"  >
@@ -38,7 +38,7 @@
                                     <i class="fas fa-plus"></i>
                                     <span>Add Image</span>
                                   </span>
-                                  
+
                                 </div>
                                 <div class="form-control mt-3"> Value :<span id="value" class="text-danger text-bold">{{ $images->image }}</span></div>
                                </label>
@@ -46,13 +46,13 @@
                             {{--  --}}
                             <input type="file" hidden id="image" name="image"  oninput="input()" >
                             <input type="text" hidden id="car_id" name="car_id" value="{{ $id }}" />
-                              
+
                             </div>
                             <div class="table table-striped files" id="previews">
-                              
+
                             </div>
                           </div>
-                            
+
                         </div>
                       </div>
 
@@ -89,7 +89,10 @@
         let formData = new FormData();
             formData.append('car_id',document.getElementById('car_id').value);
             formData.append('image',document.getElementById('image').files[0]);
-            storeRoute('/cms/admin/update_image_cars/'+id,formData);
+            //storeRoute('/cms/admin/update_image_cars/'+id,formData);
+
+            var APP_URL = {!! json_encode(url('/cms/admin/update_image_cars')) !!}
+        storeRoute( APP_URL+'/'+id ,formData);
 
     }
 

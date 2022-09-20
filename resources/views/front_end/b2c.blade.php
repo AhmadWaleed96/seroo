@@ -83,7 +83,7 @@
         </div>
 
         <div class="page-container">
-            <img class="ground-img" src="{{ asset('public/cms/assets/img/toa-heftiba-8gI1RPr32e8-unsplash.jpg') }}">
+            <img style="filter: grayscale(.8);" class="ground-img" src="{{ asset('public/cms/assets/img/خريطة-العالم-الصماء-بدقة-عالية.jpg') }}">
             <div class="ground-cover"></div>
             <div class="page-paragraph">
                 <div class="p-header">Book and enjoy</div>

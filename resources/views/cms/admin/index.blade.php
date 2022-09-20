@@ -97,8 +97,11 @@
 
  <script>
   function performDestroy(id, reference){
-    let url = '/cms/admin/admins/'+id;
-   confirmDestroy(url, reference);
+    //let url = '/cms/admin/admins/'+id;
+   //confirmDestroy(url, reference);
+
+    var APP_URL = {!! json_encode(url('/cms/admin/admins')) !!}
+   confirmDestroy(APP_URL+'/'+id ,reference);
   }
  </script>
 @endsection

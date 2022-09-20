@@ -77,7 +77,10 @@
     let formData = new FormData();
     formData.append('name' , document.getElementById('name').value);
     formData.append('guard_name' , document.getElementById('guard_name').value);
-    storeRoute('/cms/admin/update_permissions/'+id , formData );
+    //storeRoute('/cms/admin/update_permissions/'+id , formData );
+
+    var APP_URL = {!! json_encode(url('/cms/admin/update_permissions')) !!}
+        storeRoute( APP_URL+'/'+id ,formData);
     }
     </script>
 

@@ -78,7 +78,10 @@
         let formData = new FormData();
         formData.append('guard_name',document.getElementById('guard_name').value);
             formData.append('name',document.getElementById('name').value);
-        store('/cms/admin/permissions',formData);
+        //store('/cms/admin/permissions',formData);
+
+        var APP_URL = {!! json_encode(url('/cms/admin/permissions')) !!}
+        store( APP_URL ,formData);
 
     }
 
