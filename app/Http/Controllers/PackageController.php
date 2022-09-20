@@ -112,11 +112,11 @@ class PackageController extends Controller
         ]
     );
 
-        if(!$validator->fails()){
+    if(!$validator->fails()){
 
-            $packages=package::findOrFail($id);
+        $packages=package::findOrFail($id);
 
-            $packages->name=$request->get('name');
+        $packages->name=$request->get('name');
         $packages->price=$request->get('price');
         $packages->entertainment=$request->get('entertainment');
         $packages->duration=$request->get('duration');
@@ -124,7 +124,7 @@ class PackageController extends Controller
         $packages->checkout=$request->get('checkout');
         $packages->description=$request->get('description');
 
-            if (request()->hasFile('image')) {
+        if (request()->hasFile('image')) {
 
                 $image = $request->file('image');
 
@@ -134,7 +134,7 @@ class PackageController extends Controller
 
                 $packages->image = $imageName;
 
-                }
+            }
 
             $isSaved = $packages->save();
             return ['redirect'=>route('packages.index',$id)];
@@ -147,9 +147,9 @@ class PackageController extends Controller
                 return response()->json(['icon' => 'error' , 'title' => 'فشلت تعديل الغرفة'] , 400);
             }
         }
-            else{
-                return response()->json(['icon' => 'error' , 'title' => $validator->getMessageBag()->first()] , 400);
-            }
+        else{
+            return response()->json(['icon' => 'error' , 'title' => $validator->getMessageBag()->first()] , 400);
+        }
     }
 
     /**
@@ -161,5 +161,12 @@ class PackageController extends Controller
     public function destroy($id)
     {
         Package::destroy($id);
+    }
+
+
+    public function viewPackage($id)
+    {
+        $packages=package::findOrFail($id);
+        return response()->view('front_end.package',compact('packages'));
     }
 }

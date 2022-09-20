@@ -146,7 +146,9 @@ Route::prefix( LaravelLocalization::setLocale())->group(function(){
     Route::get('', function () {return view('front_end.main');})->name('home');
     Route::get('b2c', function () {return view('front_end.b2c');})->name('b2c');
     Route::get('local', function () {return view('front_end.local');})->name('local');
-    Route::get('package', function () {return view('front_end.package');})->name('package');
+    // Route::get('package', function () {return view('front_end.package');})->name('package');
+    Route::get('viewPackage/{id}' , [PackageController::class , 'viewPackage'])->name('viewPackage');
+
 });
 
 

@@ -142,6 +142,7 @@
 
             ?>
                 @foreach ( $packages as $package )
+                <a href="{{ route('viewPackage',$package->id) }}">
 
             <div class="package" >
 
@@ -155,6 +156,7 @@
                     <div class="detail">entertainment</div>
                 </div>
             </div>
+        </a>
 
             @endforeach
 
