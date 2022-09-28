@@ -131,7 +131,8 @@ route::prefix('cms/admin/')->middleware('auth:admin')->group(function(){
     Route::get('/index/hotel-item/{id}', [ItemHotelController::class, 'indexItem'])->name('indexItem_hotel');
 
 
-
+    Route::resource('book_hotels', BookHotelController::class)->except('create');
+    Route::post('book_hotels/{id}' , [BookHotelController::class , 'update'])->name('book_hotels');
 
 
     // Route::resource('roles', RoleController::class);
@@ -146,7 +147,6 @@ Route::prefix( LaravelLocalization::setLocale())->group(function(){
     Route::get('', function () {return view('front_end.main');})->name('home');
     Route::get('b2c', function () {return view('front_end.b2c');})->name('b2c');
     Route::get('local', function () {return view('front_end.local');})->name('local');
-    // Route::get('package', function () {return view('front_end.package');})->name('package');
     Route::get('viewPackage/{id}' , [PackageController::class , 'viewPackage'])->name('viewPackage');
 
 });
@@ -158,7 +158,7 @@ Route::prefix('/')->middleware('auth:web')->group(function(){
     Route::get('/logout',[UserAuthController::class,'logOut'])->name('logout');
     Route::post('/password/update', [UserController::class, 'updatePassword']);
 
-    Route::resource('book_hotels', BookHotelController::class);
+    Route::resource('book_hotels', BookHotelController::class)->except('destroy','index');
     Route::post('book_hotels/{id}' , [BookHotelController::class , 'update'])->name('book_hotels');
     Route::get('/create/book-hotel/{id}', [BookHotelController::class, 'createBook'])->name('create-book-hotel');
 

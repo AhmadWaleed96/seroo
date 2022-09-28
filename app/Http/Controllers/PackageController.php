@@ -108,7 +108,7 @@ class PackageController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator($request->all(),[
-            'name_room' => 'required|string|min:3|max:20',
+            'name' => 'required|string|min:3|max:20',
         ]
     );
 
@@ -137,7 +137,7 @@ class PackageController extends Controller
             }
 
             $isSaved = $packages->save();
-            return ['redirect'=>route('packages.index',$id)];
+            return ['redirect'=>route('packages.index')];
 
             if($isSaved){
                 return response()->json(['icon' => 'success' , 'title' => 'تم تعديل الغرفة بنجاح'] , 200);

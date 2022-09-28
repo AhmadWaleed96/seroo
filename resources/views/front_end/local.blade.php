@@ -404,9 +404,9 @@
                         <div class="dropdown-name">Details</div>
                         <a class="btn btn-secondary dropdown-toggle-sp form-control w-100">
 
-                            <input type="text" hidden id="input1"  name='number_of_people' @if( request()->number_of_people) value={{request()->number_of_people}} @endif >
-                            <input type="text" hidden id="input2"  name='number_of_room' @if( request()->number_of_room) value={{request()->number_of_room}} @endif >
-                            <input type="text" hidden id="input3"  name='number_of_children' @if( request()->number_of_children) value={{request()->number_of_children}} @endif >
+                            <input type="text" hidden id="input1"  name='number_of_people' >
+                            <input type="text" hidden id="input2"  name='number_of_room'  >
+                            <input type="text" hidden id="input3"  name='number_of_children'>
 
                             <span class="adults_num" id="number_of_people">0</span> {{__("Adults")}} <span class="children_num" id='number_of_children'>0</span> {{__("Children")}} <span class="rooms_num" id='number_of_room'>0</span> {{__("Rooms")}}
                             <script>

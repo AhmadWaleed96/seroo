@@ -40,13 +40,13 @@ class BookHotelController extends Controller
         // if ($request->get('city_id')) {
         //     $item_hotels = ItemHotel::with("city")->where('city_id', 'like', '%' . $request->city_id . '%');
         // }
-        if( $request->get('city_id') && $request->get('checkin') && $request->get('checkout') && $request->get('number_of_room') && $request->get('number_of_people') &&$request->get('number_of_children')){
+        if( $request->get('city_id') && $request->get('checkin') && $request->get('checkout') ){
                     $item_hotels = ItemHotel::with("city")->where('city_id', 'like', '%' . $request->city_id . '%')
                     ->orWhere('checkin', 'like', '%' . $request->checkin . '%')
-                    ->orWhere('checkout', 'like', '%' . $request->checkout . '%')
-                    ->orWhere('number_of_room', 'like', '%' . $request->number_of_room . '%')
-                    ->orWhere('number_of_people', 'like', '%' . $request->number_of_people . '%')
-                    ->orWhere('number_of_children', 'like', '%' . $request->number_of_children . '%');
+                    ->orWhere('checkout', 'like', '%' . $request->checkout . '%');
+                    // ->orWhere('number_of_room', 'like', '%' . $request->number_of_room . '%')
+                    // ->orWhere('number_of_people', 'like', '%' . $request->number_of_people . '%')
+                    // ->orWhere('number_of_children', 'like', '%' . $request->number_of_children . '%');
                 }
         /* search all */
 
@@ -131,7 +131,8 @@ class BookHotelController extends Controller
      */
     public function index()
     {
-        //
+        $book_hotels=BookHotel::with(['users','hotel','admins'])->orderBy('id','desc')->paginate(10);
+        return response()->view('cms.book_hotel.index',compact('book_hotels'));
     }
 
 
@@ -157,14 +158,13 @@ class BookHotelController extends Controller
             $book_hotels->number_of_room= $request->get('number_of_room');
             $book_hotels->hotel_id= $request->get('hotel_id');
             $book_hotels->price= $request->get('price');
-            $book_hotels->user_id= Auth::id();
+            $book_hotels->user_id= Auth::guard('web')->id();
             $isSaved=$book_hotels->save();
 
         if($isSaved){
             return response()->json(['icon' => 'success' , 'title' => 'تم الحجز  بنجاح'] , 200);
-         }
-         else {
-            return response()->json(['icon' => 'error' , 'title' => ' فشلت عملية الحجز الصورة'] , 400);
+         }else {
+            return response()->json(['icon' => 'error' , 'title' => ' فشلت عملية الحجز '] , 400);
 
          }
 

@@ -70,9 +70,9 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="discreption"> الوصف</label>
-                                        <textarea class="form-control" style="resize: none;" id="discreption"
-                                            name="discreption" rows="4" placeholder="ادخل الوصف" cols="50"></textarea>
+                                        <label for="description"> الوصف</label>
+                                        <textarea class="form-control" style="resize: none;" id="description"
+                                            name="description" rows="4" placeholder="ادخل الوصف" cols="50"></textarea>
                                     </div>
                                 </div>
 
@@ -124,7 +124,7 @@
             formData.append('name',document.getElementById('name').value);
             formData.append('price',document.getElementById('price').value);
             formData.append('entertainment',document.getElementById('entertainment').value);
-            formData.append('discreption',document.getElementById('discreption').value);
+            formData.append('description',document.getElementById('description').value);
             formData.append('duration',document.getElementById('duration').value);
             formData.append('checkin',document.getElementById('checkin').value);
             formData.append('checkout',document.getElementById('checkout').value);

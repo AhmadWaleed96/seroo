@@ -126,6 +126,7 @@ img {
 
                 </div>
                 <input type="hidden" name="hotel_id" id="hotel_id" value="{{$id}}">
+                <input type="hidden" name="user_id" id="user_id" value="{{Auth::id()}}">
                 <div class="mb-2">
                     <label for="exampleFormControlInput1" class="form-label"> عدد الغرف *</label>
                      <input type="text" class="form-control" disabled name="number_of_room" id="number_of_room" value="{{ $item->number_of_room}}">
